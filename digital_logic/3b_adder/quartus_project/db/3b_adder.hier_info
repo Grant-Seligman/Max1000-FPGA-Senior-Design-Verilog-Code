@@ -1,0 +1,32 @@
+|3b_adder
+cout <= adder:inst.cout
+a[0] => adder:inst.a[0]
+a[1] => adder:inst.a[1]
+a[2] => adder:inst.a[2]
+b[0] => adder:inst.b[0]
+b[1] => adder:inst.b[1]
+b[2] => adder:inst.b[2]
+sum[0] <= adder:inst.sum[0]
+sum[1] <= adder:inst.sum[1]
+sum[2] <= adder:inst.sum[2]
+
+
+|3b_adder|adder:inst
+sum[0] <= xor_1.DB_MAX_OUTPUT_PORT_TYPE
+sum[1] <= xor_3.DB_MAX_OUTPUT_PORT_TYPE
+sum[2] <= xor_5.DB_MAX_OUTPUT_PORT_TYPE
+cout <= or_2.DB_MAX_OUTPUT_PORT_TYPE
+a[0] => xor_1.IN0
+a[0] => and_1.IN0
+a[1] => xor_2.IN0
+a[1] => and_2.IN0
+a[2] => xor_4.IN0
+a[2] => and_4.IN0
+b[0] => xor_1.IN1
+b[0] => and_1.IN1
+b[1] => xor_2.IN1
+b[1] => and_2.IN1
+b[2] => xor_4.IN1
+b[2] => and_4.IN1
+
+

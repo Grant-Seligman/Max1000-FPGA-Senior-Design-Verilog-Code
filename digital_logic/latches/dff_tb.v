@@ -4,7 +4,7 @@ reg d, clk;
 wire q, q0;
 wire [1:0] out;
 
-dff dut(q, q0, d, clk);
+_dff dut(q, q0, d, clk);
 
 initial
 begin
