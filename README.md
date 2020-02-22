@@ -32,7 +32,8 @@ https://shop.trenz-electronic.de/en/Download/?path=Trenz_Electronic/Modules_and_
 
 
 ----Development Pitfalls----
-These are embarrassing, but in case someone, like me, is just starting out with no prior experience with FPGAs this might help when using the Max1000.
+
+These are embarrassing, but in case someone like me is just starting out with no prior experience with FPGAs, this might help getting started with the Max1000.
 
 1. MAKE SURE YOUR USB CABLE ISN'T JUST 5V & GND. I was using this crappy charging cable and scratched my head longer than I'd like to      admit.
 
