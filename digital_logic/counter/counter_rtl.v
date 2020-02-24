@@ -7,7 +7,7 @@ FOR: TEXAS STATE UNIVERSITY STUDENT AND INSTRUCTOR USE
 */
 // RTL Code
 
-module counter(state, rst, clk);
+module counter_rtl(state, rst, clk);
 
     // Store state value using 4 bits and 
     output reg [3:0] state;
@@ -24,8 +24,8 @@ module counter(state, rst, clk);
     // Enter at every positive edge of clk
     always@(posedge clk)
 
-        // If rst is high, return state to s0
-        if (rst)
+        // If rst is low, return state to s0
+        if (!rst)
             state = s0;
 
         // Increment to next state
