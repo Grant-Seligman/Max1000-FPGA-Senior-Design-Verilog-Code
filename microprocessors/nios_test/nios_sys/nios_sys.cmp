@@ -1,0 +1,8 @@
+	component nios_sys is
+		port (
+			byte_pio_export : out std_logic_vector(3 downto 0);        -- export
+			clk_clk         : in  std_logic                    := 'X'; -- clk
+			reset_reset_n   : in  std_logic                    := 'X'  -- reset_n
+		);
+	end component nios_sys;
+
