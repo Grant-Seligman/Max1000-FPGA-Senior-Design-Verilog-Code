@@ -32,7 +32,7 @@
  --                  Bank 3:       2.5V
  --                  Bank 5:       2.5V
  --                  Bank 6:       2.5V
- --                  Bank 8:       2.5V
+ --                  Bank 8:       3.3V
  -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
  --                  It can also be used to report unused dedicated pins. The connection
  --                  on the board for unused dedicated pins depends on whether this will
@@ -74,10 +74,10 @@ RESERVED_INPUT               : A4        :        :                   :         
 RESERVED_INPUT               : A5        :        :                   :         : 8         :                
 RESERVED_INPUT               : A6        :        :                   :         : 8         :                
 RESERVED_INPUT               : A7        :        :                   :         : 8         :                
-leds[7]                      : A8        : output : 2.5 V             :         : 8         : Y              
-leds[6]                      : A9        : output : 2.5 V             :         : 8         : Y              
-leds[4]                      : A10       : output : 2.5 V             :         : 8         : Y              
-leds[5]                      : A11       : output : 2.5 V             :         : 8         : Y              
+leds[7]                      : A8        : output : 3.3-V LVTTL       :         : 8         : Y              
+leds[6]                      : A9        : output : 3.3-V LVTTL       :         : 8         : Y              
+leds[4]                      : A10       : output : 3.3-V LVTTL       :         : 8         : Y              
+leds[5]                      : A11       : output : 3.3-V LVTTL       :         : 8         : Y              
 RESERVED_INPUT               : A12       :        :                   :         : 6         :                
 GND                          : A13       : gnd    :                   :         :           :                
 RESERVED_INPUT               : B1        :        :                   :         : 1A        :                
@@ -89,20 +89,20 @@ RESERVED_INPUT               : B6        :        :                   :         
 RESERVED_INPUT               : B7        :        :                   :         : 8         :                
 GND                          : B8        : gnd    :                   :         :           :                
 RESERVED_INPUT               : B9        :        :                   :         : 8         :                
-leds[3]                      : B10       : output : 2.5 V             :         : 8         : Y              
+leds[3]                      : B10       : output : 3.3-V LVTTL       :         : 8         : Y              
 RESERVED_INPUT               : B11       :        :                   :         : 6         :                
 RESERVED_INPUT               : B12       :        :                   :         : 6         :                
 RESERVED_INPUT               : B13       :        :                   :         : 6         :                
 RESERVED_INPUT               : C1        :        :                   :         : 1A        :                
 RESERVED_INPUT               : C2        :        :                   :         : 1A        :                
 GND                          : C3        : gnd    :                   :         :           :                
-~ALTERA_nSTATUS~ / RESERVED_INPUT : C4        : input  : 2.5 V Schmitt Trigger :         : 8         : N              
-~ALTERA_CONF_DONE~ / RESERVED_INPUT : C5        : input  : 2.5 V Schmitt Trigger :         : 8         : N              
-VCCIO8                       : C6        : power  :                   : 2.5V    : 8         :                
-VCCIO8                       : C7        : power  :                   : 2.5V    : 8         :                
-VCCIO8                       : C8        : power  :                   : 2.5V    : 8         :                
-leds[2]                      : C9        : output : 2.5 V             :         : 8         : Y              
-leds[1]                      : C10       : output : 2.5 V             :         : 8         : Y              
+~ALTERA_nSTATUS~ / RESERVED_INPUT : C4        : input  : 3.3 V Schmitt Trigger :         : 8         : N              
+~ALTERA_CONF_DONE~ / RESERVED_INPUT : C5        : input  : 3.3 V Schmitt Trigger :         : 8         : N              
+VCCIO8                       : C6        : power  :                   : 3.3V    : 8         :                
+VCCIO8                       : C7        : power  :                   : 3.3V    : 8         :                
+VCCIO8                       : C8        : power  :                   : 3.3V    : 8         :                
+leds[2]                      : C9        : output : 3.3-V LVTTL       :         : 8         : Y              
+leds[1]                      : C10       : output : 3.3-V LVTTL       :         : 8         : Y              
 RESERVED_INPUT               : C11       :        :                   :         : 6         :                
 RESERVED_INPUT               : C12       :        :                   :         : 6         :                
 RESERVED_INPUT               : C13       :        :                   :         : 6         :                
@@ -112,8 +112,8 @@ ADC_VREF                     : D3        :        :                   :         
 VCCA3                        : D4        : power  :                   : 3.0V/3.3V :           :                
 GND                          : D5        : gnd    :                   :         :           :                
 RESERVED_INPUT               : D6        :        :                   :         : 8         :                
-~ALTERA_CONFIG_SEL~ / RESERVED_INPUT : D7        : input  : 2.5 V             :         : 8         : N              
-leds[0]                      : D8        : output : 2.5 V             :         : 8         : Y              
+~ALTERA_CONFIG_SEL~ / RESERVED_INPUT : D7        : input  : 3.3-V LVTTL       :         : 8         : N              
+leds[0]                      : D8        : output : 3.3-V LVTTL       :         : 8         : Y              
 RESERVED_INPUT               : D9        :        :                   :         : 6         :                
 VCCA2                        : D10       : power  :                   : 3.0V/3.3V :           :                
 RESERVED_INPUT               : D11       :        :                   :         : 6         :                
@@ -125,7 +125,7 @@ RESERVED_INPUT               : E3        :        :                   :         
 RESERVED_INPUT               : E4        :        :                   :         : 1A        :                
 RESERVED_INPUT               : E5        :        :                   :         : 1B        :                
 RESERVED_INPUT               : E6        :        :                   :         : 8         :                
-~ALTERA_nCONFIG~ / RESERVED_INPUT : E7        : input  : 2.5 V Schmitt Trigger :         : 8         : N              
+~ALTERA_nCONFIG~ / RESERVED_INPUT : E7        : input  : 3.3 V Schmitt Trigger :         : 8         : N              
 RESERVED_INPUT               : E8        :        :                   :         : 8         :                
 RESERVED_INPUT               : E9        :        :                   :         : 6         :                
 RESERVED_INPUT               : E10       :        :                   :         : 6         :                

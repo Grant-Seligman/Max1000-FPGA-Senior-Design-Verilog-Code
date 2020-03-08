@@ -1,5 +1,5 @@
 Power Analyzer report for nios_test
-Sun Mar 01 16:11:28 2020
+Mon Mar 02 08:53:04 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -52,29 +52,29 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.96        ;
+; Average used               ; 1.42        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;  19.1%      ;
+;     Processors 2-6         ;   8.4%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Sun Mar 01 16:11:28 2020            ;
+; Power Analyzer Status                  ; Successful - Mon Mar 02 08:53:04 2020            ;
 ; Quartus Prime Version                  ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition      ;
 ; Revision Name                          ; nios_test                                        ;
 ; Top-level Entity Name                  ; nios_test                                        ;
 ; Family                                 ; MAX 10                                           ;
 ; Device                                 ; 10M08SAU169C8G                                   ;
 ; Power Models                           ; Final                                            ;
-; Total Thermal Power Dissipation        ; 116.71 mW                                        ;
+; Total Thermal Power Dissipation        ; 121.87 mW                                        ;
 ; Core Dynamic Thermal Power Dissipation ; 1.47 mW                                          ;
-; Core Static Thermal Power Dissipation  ; 110.63 mW                                        ;
-; I/O Thermal Power Dissipation          ; 4.60 mW                                          ;
+; Core Static Thermal Power Dissipation  ; 110.65 mW                                        ;
+; I/O Thermal Power Dissipation          ; 9.75 mW                                          ;
 ; Power Estimation Confidence            ; Low: user provided insufficient toggle rate data ;
 +----------------------------------------+--------------------------------------------------+
 
@@ -128,10 +128,12 @@ refer to the applicable agreement for further details.
 ; Voltages                                    ;                            ;
 ;     VCCA                                    ; 3.00 V                     ;
 ;     VCC_ONE                                 ; 3.00 V                     ;
+;     3.3-V LVTTL I/O Standard                ; 3.3 V                      ;
 ;     2.5 V I/O Standard                      ; 2.5 V                      ;
+;     3.3 V Schmitt Trigger I/O Standard      ; 3.3 V                      ;
 ;     2.5 V Schmitt Trigger I/O Standard      ; 2.5 V                      ;
 ;                                             ;                            ;
-; Auto computed junction temperature          ; 27.3 degrees Celsius       ;
+; Auto computed junction temperature          ; 27.4 degrees Celsius       ;
 ;     Ambient temperature                     ; 25.0 degrees Celsius       ;
 ;     Junction-to-Case thermal resistance     ; 11.20 degrees Celsius/Watt ;
 ;     Case-to-Heat Sink thermal resistance    ; 0.10 degrees Celsius/Watt  ;
@@ -159,7 +161,7 @@ refer to the applicable agreement for further details.
 ; Combinational cell  ; 0.08 mW                           ; 0.06 mW                     ; --                             ; 0.02 mW                       ;    0.203                                                  ;
 ; Clock control block ; 0.26 mW                           ; 0.00 mW                     ; --                             ; 0.26 mW                       ;    5.000                                                  ;
 ; Register cell       ; 0.24 mW                           ; 0.15 mW                     ; --                             ; 0.09 mW                       ;    0.342                                                  ;
-; I/O                 ; 0.22 mW                           ; 0.15 mW                     ; 0.07 mW                        ; 0.00 mW                       ;    1.528                                                  ;
+; I/O                 ; 0.71 mW                           ; 0.15 mW                     ; 0.57 mW                        ; 0.00 mW                       ;    1.528                                                  ;
 ; Voltage Regulator   ; 0.89 mW                           ; 0.89 mW                     ; 0.00 mW                        ; --                            ; --                                                        ;
 +---------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
 (1) The "Block Thermal Static Power" for all block types except Pins and the Voltage Regulator, if one exists, is part of the "Core Static Thermal Power Dissipation" value found on the PowerPlay Power Analyzer-->Summary report panel. The "Core Static Thermal Power Dissipation" also contains the thermal static power dissipated by the routing.
@@ -170,7 +172,7 @@ refer to the applicable agreement for further details.
 +------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Compilation Hierarchy Node                                                                                                               ; Total Thermal Power by Hierarchy (1) ; Block Thermal Dynamic Power (1) ; Block Thermal Static Power (1)(2) ; Routing Thermal Dynamic Power (1) ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                                           ;
 +------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; |nios_test                                                                                                                               ; 1.70 mW (1.37 mW)                    ; 1.25 mW (1.04 mW)               ; 0.07 mW (0.07 mW)                 ; 0.38 mW (0.26 mW)                 ; |nios_test                                                                                                                                                                                                                                                                                                                                                                    ;
+; |nios_test                                                                                                                               ; 2.19 mW (1.87 mW)                    ; 1.25 mW (1.04 mW)               ; 0.57 mW (0.57 mW)                 ; 0.38 mW (0.26 mW)                 ; |nios_test                                                                                                                                                                                                                                                                                                                                                                    ;
 ;     |hard_block:auto_generated_inst                                                                                                      ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |nios_test|hard_block:auto_generated_inst                                                                                                                                                                                                                                                                                                                                     ;
 ;     |sld_hub:auto_hub                                                                                                                    ; 0.15 mW (0.00 mW)                    ; 0.11 mW (0.00 mW)               ; --                                ; 0.05 mW (0.00 mW)                 ; |nios_test|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                                                   ;
 ;         |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric ; 0.15 mW (0.00 mW)                    ; 0.11 mW (0.00 mW)               ; --                                ; 0.05 mW (0.00 mW)                 ; |nios_test|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                                                   ;
@@ -304,9 +306,9 @@ refer to the applicable agreement for further details.
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; Voltage Supply ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; VCCIO          ; 1.85 mA                 ; 0.05 mA                   ; 1.80 mA                  ; 1.85 mA                          ;
+; VCCIO          ; 3.37 mA                 ; 0.05 mA                   ; 3.32 mA                  ; 3.37 mA                          ;
 ; VCCA           ; 0.00 mA                 ; 0.00 mA                   ; 0.00 mA                  ; 0.00 mA                          ;
-; VCC_ONE        ; 37.37 mA                ; 0.49 mA                   ; 36.88 mA                 ; 37.37 mA                         ;
+; VCC_ONE        ; 37.38 mA                ; 0.49 mA                   ; 36.88 mA                 ; 37.38 mA                         ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 (1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
 (2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
@@ -325,7 +327,7 @@ refer to the applicable agreement for further details.
 ; 5        ; 2.5V          ; 0.25 mA             ; 0.00 mA               ; 0.25 mA              ;
 ; 6        ; 2.5V          ; 0.25 mA             ; 0.00 mA               ; 0.25 mA              ;
 ; 7        ; --            ; --                  ; --                    ; --                   ;
-; 8        ; 2.5V          ; 0.28 mA             ; 0.00 mA               ; 0.28 mA              ;
+; 8        ; 3.3V          ; 1.80 mA             ; 0.00 mA               ; 1.80 mA              ;
 +----------+---------------+---------------------+-----------------------+----------------------+
 
 
@@ -334,7 +336,8 @@ refer to the applicable agreement for further details.
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; VCCIO Voltage ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; 2.5V          ; 1.85 mA                 ; 0.05 mA                   ; 1.80 mA                  ; 1.85 mA                          ;
+; 2.5V          ; 1.57 mA                 ; 0.05 mA                   ; 1.51 mA                  ; 1.57 mA                          ;
+; 3.3V          ; 1.80 mA                 ; 0.00 mA                   ; 1.80 mA                  ; 1.80 mA                          ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 (1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
 (2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
@@ -381,7 +384,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Power Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Mar 01 16:11:26 2020
+    Info: Processing started: Mon Mar 02 08:53:00 2020
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off nios_test -c nios_test
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
@@ -436,11 +439,11 @@ Info (218000): Using Advanced I/O Power to simulate I/O buffers with the specifi
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (215049): Average toggle rate for this design is 0.266 millions of transitions / sec
-Info (215031): Total thermal power estimate for the design is 116.71 mW
+Info (215031): Total thermal power estimate for the design is 121.87 mW
 Info: Quartus Prime Power Analyzer was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4870 megabytes
-    Info: Processing ended: Sun Mar 01 16:11:28 2020
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 4873 megabytes
+    Info: Processing ended: Mon Mar 02 08:53:04 2020
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:06
 
 
