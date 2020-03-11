@@ -25,7 +25,7 @@
 // GND - pin 1
 ///////////////////////////////////////////////////////////////////////////////
 
-module decoder7(out, in);
+module seven_seg_decoder(out, in);
   output reg [7:0] out;
   input wire [3:0] in;
 
