@@ -1,0 +1,671 @@
+Timing Analyzer report for keypad_decoder_nios
+Thu Mar 12 01:39:41 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow 1200mV 85C Model Fmax Summary
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Metastability Summary
+ 13. Slow 1200mV 0C Model Fmax Summary
+ 14. Slow 1200mV 0C Model Setup Summary
+ 15. Slow 1200mV 0C Model Hold Summary
+ 16. Slow 1200mV 0C Model Recovery Summary
+ 17. Slow 1200mV 0C Model Removal Summary
+ 18. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 19. Slow 1200mV 0C Model Metastability Summary
+ 20. Fast 1200mV 0C Model Setup Summary
+ 21. Fast 1200mV 0C Model Hold Summary
+ 22. Fast 1200mV 0C Model Recovery Summary
+ 23. Fast 1200mV 0C Model Removal Summary
+ 24. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 25. Fast 1200mV 0C Model Metastability Summary
+ 26. Multicorner Timing Analysis Summary
+ 27. Board Trace Model Assignments
+ 28. Input Transition Times
+ 29. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 30. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 31. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 32. Setup Transfers
+ 33. Hold Transfers
+ 34. Report TCCS
+ 35. Report RSKM
+ 36. Unconstrained Paths Summary
+ 37. Clock Status Summary
+ 38. Unconstrained Input Ports
+ 39. Unconstrained Output Ports
+ 40. Unconstrained Input Ports
+ 41. Unconstrained Output Ports
+ 42. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; keypad_decoder_nios                                 ;
+; Device Family         ; MAX 10                                              ;
+; Device Name           ; 10M08SAU169C8G                                      ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.06        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   1.2%      ;
+;     Processors 3-6         ;   1.1%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; SDC File List                                                                                 ;
++-----------------------------------------------------------+--------+--------------------------+
+; SDC File Path                                             ; Status ; Read at                  ;
++-----------------------------------------------------------+--------+--------------------------+
+; nios_sys/synthesis/submodules/altera_reset_controller.sdc ; OK     ; Thu Mar 12 01:39:40 2020 ;
+; nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc      ; OK     ; Thu Mar 12 01:39:40 2020 ;
++-----------------------------------------------------------+--------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                               ;
++---------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------+
+; Clock Name                ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                       ;
++---------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------+
+; clock                     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock }                     ;
+; stepdown_clk:inst2|clkout ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { stepdown_clk:inst2|clkout } ;
++---------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+---------------------------+------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                ; Note                                           ;
++------------+-----------------+---------------------------+------------------------------------------------+
+; 188.01 MHz ; 188.01 MHz      ; clock                     ;                                                ;
+; 438.4 MHz  ; 402.09 MHz      ; stepdown_clk:inst2|clkout ; limit due to minimum period restriction (tmin) ;
++------------+-----------------+---------------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary                ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clock                     ; -4.319 ; -66.808       ;
+; stepdown_clk:inst2|clkout ; -1.281 ; -7.600        ;
++---------------------------+--------+---------------+
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary                ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; stepdown_clk:inst2|clkout ; 0.360 ; 0.000         ;
+; clock                     ; 0.733 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary  ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clock                     ; -3.000 ; -40.175       ;
+; stepdown_clk:inst2|clkout ; -1.487 ; -19.331       ;
++---------------------------+--------+---------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+---------------------------+------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                ; Note                                           ;
++------------+-----------------+---------------------------+------------------------------------------------+
+; 197.86 MHz ; 197.86 MHz      ; clock                     ;                                                ;
+; 475.96 MHz ; 402.09 MHz      ; stepdown_clk:inst2|clkout ; limit due to minimum period restriction (tmin) ;
++------------+-----------------+---------------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary                 ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clock                     ; -4.054 ; -60.873       ;
+; stepdown_clk:inst2|clkout ; -1.101 ; -6.492        ;
++---------------------------+--------+---------------+
+
+
++---------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                 ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; stepdown_clk:inst2|clkout ; 0.323 ; 0.000         ;
+; clock                     ; 0.693 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary   ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clock                     ; -3.000 ; -40.175       ;
+; stepdown_clk:inst2|clkout ; -1.487 ; -19.331       ;
++---------------------------+--------+---------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++----------------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary                 ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clock                     ; -1.119 ; -10.354       ;
+; stepdown_clk:inst2|clkout ; 0.123  ; 0.000         ;
++---------------------------+--------+---------------+
+
+
++---------------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary                 ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; stepdown_clk:inst2|clkout ; 0.151 ; 0.000         ;
+; clock                     ; 0.250 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary   ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clock                     ; -3.000 ; -32.240       ;
+; stepdown_clk:inst2|clkout ; -1.000 ; -13.000       ;
++---------------------------+--------+---------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                     ;
++----------------------------+---------+-------+----------+---------+---------------------+
+; Clock                      ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++----------------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack           ; -4.319  ; 0.151 ; N/A      ; N/A     ; -3.000              ;
+;  clock                     ; -4.319  ; 0.250 ; N/A      ; N/A     ; -3.000              ;
+;  stepdown_clk:inst2|clkout ; -1.281  ; 0.151 ; N/A      ; N/A     ; -1.487              ;
+; Design-wide TNS            ; -74.408 ; 0.0   ; 0.0      ; 0.0     ; -59.506             ;
+;  clock                     ; -66.808 ; 0.000 ; N/A      ; N/A     ; -40.175             ;
+;  stepdown_clk:inst2|clkout ; -7.600  ; 0.000 ; N/A      ; N/A     ; -19.331             ;
++----------------------------+---------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                   ;
++--------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin          ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++--------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; key[3]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; key[2]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; key[1]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; key[0]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; rows[3]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; rows[2]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; rows[1]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; rows[0]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_TDO~ ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++--------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++---------------------------------------------------------------------------------+
+; Input Transition Times                                                          ;
++---------------------+-----------------------+-----------------+-----------------+
+; Pin                 ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
++---------------------+-----------------------+-----------------+-----------------+
+; reset               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; columns[0]          ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; columns[1]          ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; columns[2]          ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; columns[3]          ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; clock               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_TMS~        ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_TCK~        ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_TDI~        ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_CONFIG_SEL~ ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_nCONFIG~    ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_nSTATUS~    ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_CONF_DONE~  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
++---------------------+-----------------------+-----------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin          ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; key[3]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.08e-08 V                   ; 3.19 V              ; -0.126 V            ; 0.218 V                              ; 0.383 V                              ; 4.51e-10 s                  ; 4.73e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.08e-08 V                  ; 3.19 V             ; -0.126 V           ; 0.218 V                             ; 0.383 V                             ; 4.51e-10 s                 ; 4.73e-10 s                 ; No                        ; No                        ;
+; key[2]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.08e-08 V                   ; 3.19 V              ; -0.128 V            ; 0.216 V                              ; 0.383 V                              ; 4.51e-10 s                  ; 4.73e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.08e-08 V                  ; 3.19 V             ; -0.128 V           ; 0.216 V                             ; 0.383 V                             ; 4.51e-10 s                 ; 4.73e-10 s                 ; No                        ; No                        ;
+; key[1]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.08e-08 V                   ; 3.19 V              ; -0.126 V            ; 0.218 V                              ; 0.383 V                              ; 4.51e-10 s                  ; 4.73e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.08e-08 V                  ; 3.19 V             ; -0.126 V           ; 0.218 V                             ; 0.383 V                             ; 4.51e-10 s                 ; 4.73e-10 s                 ; No                        ; No                        ;
+; key[0]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.08e-08 V                   ; 3.19 V              ; -0.126 V            ; 0.218 V                              ; 0.383 V                              ; 4.51e-10 s                  ; 4.73e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.08e-08 V                  ; 3.19 V             ; -0.126 V           ; 0.218 V                             ; 0.383 V                             ; 4.51e-10 s                 ; 4.73e-10 s                 ; No                        ; No                        ;
+; rows[3]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.08e-08 V                   ; 3.19 V              ; -0.128 V            ; 0.216 V                              ; 0.383 V                              ; 4.51e-10 s                  ; 4.73e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.08e-08 V                  ; 3.19 V             ; -0.128 V           ; 0.216 V                             ; 0.383 V                             ; 4.51e-10 s                 ; 4.73e-10 s                 ; No                        ; No                        ;
+; rows[2]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.08e-08 V                   ; 3.19 V              ; -0.128 V            ; 0.216 V                              ; 0.383 V                              ; 4.51e-10 s                  ; 4.73e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.08e-08 V                  ; 3.19 V             ; -0.128 V           ; 0.216 V                             ; 0.383 V                             ; 4.51e-10 s                 ; 4.73e-10 s                 ; No                        ; No                        ;
+; rows[1]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.08e-08 V                   ; 3.19 V              ; -0.126 V            ; 0.218 V                              ; 0.383 V                              ; 4.51e-10 s                  ; 4.73e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.08e-08 V                  ; 3.19 V             ; -0.126 V           ; 0.218 V                             ; 0.383 V                             ; 4.51e-10 s                 ; 4.73e-10 s                 ; No                        ; No                        ;
+; rows[0]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.08e-08 V                   ; 3.19 V              ; -0.128 V            ; 0.216 V                              ; 0.383 V                              ; 4.51e-10 s                  ; 4.73e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.08e-08 V                  ; 3.19 V             ; -0.128 V           ; 0.216 V                             ; 0.383 V                             ; 4.51e-10 s                 ; 4.73e-10 s                 ; No                        ; No                        ;
+; ~ALTERA_TDO~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.08e-08 V                   ; 3.19 V              ; -0.126 V            ; 0.218 V                              ; 0.383 V                              ; 4.51e-10 s                  ; 4.73e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.08e-08 V                  ; 3.19 V             ; -0.126 V           ; 0.218 V                             ; 0.383 V                             ; 4.51e-10 s                 ; 4.73e-10 s                 ; No                        ; No                        ;
++--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
++--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin          ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; key[3]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.3e-06 V                    ; 3.15 V              ; -0.0682 V           ; 0.279 V                              ; 0.237 V                              ; 4.81e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 1.3e-06 V                   ; 3.15 V             ; -0.0682 V          ; 0.279 V                             ; 0.237 V                             ; 4.81e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; key[2]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.3e-06 V                    ; 3.15 V              ; -0.0684 V           ; 0.28 V                               ; 0.237 V                              ; 4.81e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 1.3e-06 V                   ; 3.15 V             ; -0.0684 V          ; 0.28 V                              ; 0.237 V                             ; 4.81e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; key[1]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.3e-06 V                    ; 3.15 V              ; -0.0682 V           ; 0.279 V                              ; 0.237 V                              ; 4.81e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 1.3e-06 V                   ; 3.15 V             ; -0.0682 V          ; 0.279 V                             ; 0.237 V                             ; 4.81e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; key[0]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.3e-06 V                    ; 3.15 V              ; -0.0682 V           ; 0.279 V                              ; 0.237 V                              ; 4.81e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 1.3e-06 V                   ; 3.15 V             ; -0.0682 V          ; 0.279 V                             ; 0.237 V                             ; 4.81e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; rows[3]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.3e-06 V                    ; 3.15 V              ; -0.0684 V           ; 0.28 V                               ; 0.237 V                              ; 4.81e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 1.3e-06 V                   ; 3.15 V             ; -0.0684 V          ; 0.28 V                              ; 0.237 V                             ; 4.81e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; rows[2]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.3e-06 V                    ; 3.15 V              ; -0.0684 V           ; 0.28 V                               ; 0.237 V                              ; 4.81e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 1.3e-06 V                   ; 3.15 V             ; -0.0684 V          ; 0.28 V                              ; 0.237 V                             ; 4.81e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; rows[1]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.3e-06 V                    ; 3.15 V              ; -0.0682 V           ; 0.279 V                              ; 0.237 V                              ; 4.81e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 1.3e-06 V                   ; 3.15 V             ; -0.0682 V          ; 0.279 V                             ; 0.237 V                             ; 4.81e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; rows[0]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.3e-06 V                    ; 3.15 V              ; -0.0684 V           ; 0.28 V                               ; 0.237 V                              ; 4.81e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 1.3e-06 V                   ; 3.15 V             ; -0.0684 V          ; 0.28 V                              ; 0.237 V                             ; 4.81e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; ~ALTERA_TDO~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.3e-06 V                    ; 3.15 V              ; -0.0682 V           ; 0.279 V                              ; 0.237 V                              ; 4.81e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 1.3e-06 V                   ; 3.15 V             ; -0.0682 V          ; 0.279 V                             ; 0.237 V                             ; 4.81e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
++--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin          ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; key[3]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; key[2]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; key[1]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; key[0]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; rows[3]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; rows[2]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; rows[1]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; rows[0]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_TDO~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
++--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                   ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+; From Clock                ; To Clock                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+; clock                     ; clock                     ; 756      ; 0        ; 0        ; 0        ;
+; stepdown_clk:inst2|clkout ; clock                     ; 1        ; 1        ; 0        ; 0        ;
+; stepdown_clk:inst2|clkout ; stepdown_clk:inst2|clkout ; 51       ; 0        ; 0        ; 0        ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                    ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+; From Clock                ; To Clock                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+; clock                     ; clock                     ; 756      ; 0        ; 0        ; 0        ;
+; stepdown_clk:inst2|clkout ; clock                     ; 1        ; 1        ; 0        ; 0        ;
+; stepdown_clk:inst2|clkout ; stepdown_clk:inst2|clkout ; 51       ; 0        ; 0        ; 0        ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 4     ; 4    ;
+; Unconstrained Input Port Paths  ; 12    ; 12   ;
+; Unconstrained Output Ports      ; 8     ; 8    ;
+; Unconstrained Output Port Paths ; 8     ; 8    ;
++---------------------------------+-------+------+
+
+
++----------------------------------------------------------------------------+
+; Clock Status Summary                                                       ;
++---------------------------+---------------------------+------+-------------+
+; Target                    ; Clock                     ; Type ; Status      ;
++---------------------------+---------------------------+------+-------------+
+; clock                     ; clock                     ; Base ; Constrained ;
+; stepdown_clk:inst2|clkout ; stepdown_clk:inst2|clkout ; Base ; Constrained ;
++---------------------------+---------------------------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; columns[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; columns[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; columns[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; columns[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; key[0]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; key[1]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; key[2]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; key[3]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; columns[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; columns[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; columns[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; columns[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; key[0]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; key[1]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; key[2]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; key[3]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu Mar 12 01:39:39 2020
+Info: Command: quartus_sta keypad_decoder_nios -c keypad_decoder_nios
+Info: qsta_default_script.tcl version: #1
+Warning (20013): Ignored 23 assignments for entity "altera_avalon_sc_fifo" -- entity does not exist in design
+Warning (20013): Ignored 64 assignments for entity "altera_merlin_master_agent" -- entity does not exist in design
+Warning (20013): Ignored 55 assignments for entity "altera_merlin_master_translator" -- entity does not exist in design
+Warning (20013): Ignored 53 assignments for entity "altera_merlin_slave_agent" -- entity does not exist in design
+Warning (20013): Ignored 68 assignments for entity "altera_merlin_slave_translator" -- entity does not exist in design
+Warning (20013): Ignored 34 assignments for entity "altera_merlin_traffic_limiter" -- entity does not exist in design
+Warning (20013): Ignored 35 assignments for entity "altera_reset_controller" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys" -- entity does not exist in design
+Warning (20013): Ignored 14 assignments for entity "nios_sys_irq_mapper" -- entity does not exist in design
+Warning (20013): Ignored 24 assignments for entity "nios_sys_jtag_uart" -- entity does not exist in design
+Warning (20013): Ignored 12 assignments for entity "nios_sys_mm_interconnect_0" -- entity does not exist in design
+Warning (20013): Ignored 32 assignments for entity "nios_sys_mm_interconnect_0_avalon_st_adapter" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_avalon_st_adapter_error_adapter_0" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_sys_mm_interconnect_0_cmd_demux" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_sys_mm_interconnect_0_cmd_demux_001" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_cmd_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_cmd_mux_002" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_mm_interconnect_0_router" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_mm_interconnect_0_router_001" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_mm_interconnect_0_router_002" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_mm_interconnect_0_router_004" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_sys_mm_interconnect_0_rsp_demux" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_sys_mm_interconnect_0_rsp_demux_002" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_rsp_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_rsp_mux_001" -- entity does not exist in design
+Warning (20013): Ignored 172 assignments for entity "nios_sys_nios2" -- entity does not exist in design
+Warning (20013): Ignored 179 assignments for entity "nios_sys_nios2_cpu" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_onchip_memory" -- entity does not exist in design
+Warning (20013): Ignored 23 assignments for entity "nios_sys_pio_keypad_data" -- entity does not exist in design
+Warning (20013): Ignored 10 assignments for entity "nios_sys_sysid_qsys" -- entity does not exist in design
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332104): Reading SDC File: 'nios_sys/synthesis/submodules/altera_reset_controller.sdc'
+Info (332104): Reading SDC File: 'nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc'
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(46): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_break:the_nios_sys_nios2_cpu_nios2_oci_break|break_readreg* could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(46): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr* could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(46): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
+    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_oci_break_path|break_readreg*] -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr*] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(46): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(47): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_debug:the_nios_sys_nios2_cpu_nios2_oci_debug|*resetlatch could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(47): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr[33] could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(47): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
+    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_oci_debug_path|*resetlatch]     -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr[33]] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(47): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(48): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_debug:the_nios_sys_nios2_cpu_nios2_oci_debug|monitor_ready could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(48): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr[0] could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(48): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
+    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_oci_debug_path|monitor_ready]  -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr[0]] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(48): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(49): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_debug:the_nios_sys_nios2_cpu_nios2_oci_debug|monitor_error could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(49): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr[34] could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(49): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
+    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_oci_debug_path|monitor_error]  -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr[34]] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(49): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(50): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_ocimem:the_nios_sys_nios2_cpu_nios2_ocimem|*MonDReg* could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 50
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(50): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 50
+    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_ocimem_path|*MonDReg*] -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr*] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 50
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(50): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 50
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(51): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr* could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(51): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_sysclk:the_nios_sys_nios2_cpu_debug_slave_sysclk|*jdo* could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(51): Argument <from> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
+    Info (332050): set_false_path -from *$nios_sys_nios2_cpu_jtag_sr*    -to *$nios_sys_nios2_cpu_jtag_sysclk_path|*jdo* File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(51): Argument <to> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(52): sld_hub:*|irf_reg* could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(52): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_sysclk:the_nios_sys_nios2_cpu_debug_slave_sysclk|ir* could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(52): Argument <from> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
+    Info (332050): set_false_path -from sld_hub:*|irf_reg* -to *$nios_sys_nios2_cpu_jtag_sysclk_path|ir* File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(52): Argument <to> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(53): sld_hub:*|sld_shadow_jsm:shadow_jsm|state[1] could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
+Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(53): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_debug:the_nios_sys_nios2_cpu_nios2_oci_debug|monitor_go could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(53): Argument <from> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
+    Info (332050): set_false_path -from sld_hub:*|sld_shadow_jsm:shadow_jsm|state[1] -to *$nios_sys_nios2_cpu_oci_debug_path|monitor_go File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
+Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(53): Argument <to> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clock clock
+    Info (332105): create_clock -period 1.000 -name stepdown_clk:inst2|clkout stepdown_clk:inst2|clkout
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -4.319
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.319             -66.808 clock 
+    Info (332119):    -1.281              -7.600 stepdown_clk:inst2|clkout 
+Info (332146): Worst-case hold slack is 0.360
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.360               0.000 stepdown_clk:inst2|clkout 
+    Info (332119):     0.733               0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -40.175 clock 
+    Info (332119):    -1.487             -19.331 stepdown_clk:inst2|clkout 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -4.054
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.054             -60.873 clock 
+    Info (332119):    -1.101              -6.492 stepdown_clk:inst2|clkout 
+Info (332146): Worst-case hold slack is 0.323
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.323               0.000 stepdown_clk:inst2|clkout 
+    Info (332119):     0.693               0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -40.175 clock 
+    Info (332119):    -1.487             -19.331 stepdown_clk:inst2|clkout 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.119
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.119             -10.354 clock 
+    Info (332119):     0.123               0.000 stepdown_clk:inst2|clkout 
+Info (332146): Worst-case hold slack is 0.151
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.151               0.000 stepdown_clk:inst2|clkout 
+    Info (332119):     0.250               0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -32.240 clock 
+    Info (332119):    -1.000             -13.000 stepdown_clk:inst2|clkout 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 65 warnings
+    Info: Peak virtual memory: 4806 megabytes
+    Info: Processing ended: Thu Mar 12 01:39:41 2020
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

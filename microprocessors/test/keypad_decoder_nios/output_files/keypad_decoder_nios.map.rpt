@@ -1,0 +1,498 @@
+Analysis & Synthesis report for keypad_decoder_nios
+Thu Mar 12 01:39:29 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: keypad_decoder:inst
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
+ 14. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Mar 12 01:39:29 2020       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; keypad_decoder_nios                         ;
+; Top-level Entity Name              ; keypad_decoder_nios                         ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 69                                          ;
+;     Total combinational functions  ; 69                                          ;
+;     Dedicated logic registers      ; 38                                          ;
+; Total registers                    ; 38                                          ;
+; Total pins                         ; 14                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                ;
++------------------------------------------------------------------+---------------------+---------------------+
+; Option                                                           ; Setting             ; Default Value       ;
++------------------------------------------------------------------+---------------------+---------------------+
+; Device                                                           ; 10M08SAU169C8G      ;                     ;
+; Top-level entity name                                            ; keypad_decoder_nios ; keypad_decoder_nios ;
+; Family name                                                      ; MAX 10              ; Cyclone V           ;
+; Use smart compilation                                            ; Off                 ; Off                 ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                  ; On                  ;
+; Enable compact report table                                      ; Off                 ; Off                 ;
+; Restructure Multiplexers                                         ; Auto                ; Auto                ;
+; Create Debugging Nodes for IP Cores                              ; Off                 ; Off                 ;
+; Preserve fewer node names                                        ; On                  ; On                  ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable              ; Enable              ;
+; Verilog Version                                                  ; Verilog_2001        ; Verilog_2001        ;
+; VHDL Version                                                     ; VHDL_1993           ; VHDL_1993           ;
+; State Machine Processing                                         ; Auto                ; Auto                ;
+; Safe State Machine                                               ; Off                 ; Off                 ;
+; Extract Verilog State Machines                                   ; On                  ; On                  ;
+; Extract VHDL State Machines                                      ; On                  ; On                  ;
+; Ignore Verilog initial constructs                                ; Off                 ; Off                 ;
+; Iteration limit for constant Verilog loops                       ; 5000                ; 5000                ;
+; Iteration limit for non-constant Verilog loops                   ; 250                 ; 250                 ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                  ; On                  ;
+; Infer RAMs from Raw Logic                                        ; On                  ; On                  ;
+; Parallel Synthesis                                               ; On                  ; On                  ;
+; DSP Block Balancing                                              ; Auto                ; Auto                ;
+; NOT Gate Push-Back                                               ; On                  ; On                  ;
+; Power-Up Don't Care                                              ; On                  ; On                  ;
+; Remove Redundant Logic Cells                                     ; Off                 ; Off                 ;
+; Remove Duplicate Registers                                       ; On                  ; On                  ;
+; Ignore CARRY Buffers                                             ; Off                 ; Off                 ;
+; Ignore CASCADE Buffers                                           ; Off                 ; Off                 ;
+; Ignore GLOBAL Buffers                                            ; Off                 ; Off                 ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                 ; Off                 ;
+; Ignore LCELL Buffers                                             ; Off                 ; Off                 ;
+; Ignore SOFT Buffers                                              ; On                  ; On                  ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                 ; Off                 ;
+; Optimization Technique                                           ; Balanced            ; Balanced            ;
+; Carry Chain Length                                               ; 70                  ; 70                  ;
+; Auto Carry Chains                                                ; On                  ; On                  ;
+; Auto Open-Drain Pins                                             ; On                  ; On                  ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                 ; Off                 ;
+; Auto ROM Replacement                                             ; On                  ; On                  ;
+; Auto RAM Replacement                                             ; On                  ; On                  ;
+; Auto DSP Block Replacement                                       ; On                  ; On                  ;
+; Auto Shift Register Replacement                                  ; Auto                ; Auto                ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                ; Auto                ;
+; Auto Clock Enable Replacement                                    ; On                  ; On                  ;
+; Strict RAM Replacement                                           ; Off                 ; Off                 ;
+; Allow Synchronous Control Signals                                ; On                  ; On                  ;
+; Force Use of Synchronous Clear Signals                           ; Off                 ; Off                 ;
+; Auto RAM Block Balancing                                         ; On                  ; On                  ;
+; Auto RAM to Logic Cell Conversion                                ; Off                 ; Off                 ;
+; Auto Resource Sharing                                            ; Off                 ; Off                 ;
+; Allow Any RAM Size For Recognition                               ; Off                 ; Off                 ;
+; Allow Any ROM Size For Recognition                               ; Off                 ; Off                 ;
+; Allow Any Shift Register Size For Recognition                    ; Off                 ; Off                 ;
+; Use LogicLock Constraints during Resource Balancing              ; On                  ; On                  ;
+; Ignore translate_off and synthesis_off directives                ; Off                 ; Off                 ;
+; Timing-Driven Synthesis                                          ; On                  ; On                  ;
+; Report Parameter Settings                                        ; On                  ; On                  ;
+; Report Source Assignments                                        ; On                  ; On                  ;
+; Report Connectivity Checks                                       ; On                  ; On                  ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                 ; Off                 ;
+; Synchronization Register Chain Length                            ; 2                   ; 2                   ;
+; Power Optimization During Synthesis                              ; Normal compilation  ; Normal compilation  ;
+; HDL message level                                                ; Level2              ; Level2              ;
+; Suppress Register Optimization Related Messages                  ; Off                 ; Off                 ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                ; 5000                ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                ; 5000                ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                 ; 100                 ;
+; Clock MUX Protection                                             ; On                  ; On                  ;
+; Auto Gated Clock Conversion                                      ; Off                 ; Off                 ;
+; Block Design Naming                                              ; Auto                ; Auto                ;
+; SDC constraint protection                                        ; Off                 ; Off                 ;
+; Synthesis Effort                                                 ; Auto                ; Auto                ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                  ; On                  ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                 ; Off                 ;
+; Analysis & Synthesis Message Level                               ; Medium              ; Medium              ;
+; Disable Register Merging Across Hierarchies                      ; Auto                ; Auto                ;
+; Resource Aware Inference For Block RAM                           ; On                  ; On                  ;
++------------------------------------------------------------------+---------------------+---------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                            ; Library ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
+; stepdown_clk.v                   ; yes             ; User Verilog HDL File              ; C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/stepdown_clk.v          ;         ;
+; keypad_decoder.v                 ; yes             ; User Verilog HDL File              ; C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder.v        ;         ;
+; keypad_decoder_nios.bdf          ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder_nios.bdf ;         ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 69          ;
+;                                             ;             ;
+; Total combinational functions               ; 69          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 37          ;
+;     -- 3 input functions                    ; 1           ;
+;     -- <=2 input functions                  ; 31          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 46          ;
+;     -- arithmetic mode                      ; 23          ;
+;                                             ;             ;
+; Total registers                             ; 38          ;
+;     -- Dedicated logic registers            ; 38          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 14          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 25          ;
+; Total fan-out                               ; 309         ;
+; Average fan-out                             ; 2.29        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                      ; Entity Name         ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------+---------------------+--------------+
+; |keypad_decoder_nios       ; 69 (0)              ; 38 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 14   ; 0            ; 0          ; |keypad_decoder_nios                     ; keypad_decoder_nios ; work         ;
+;    |keypad_decoder:inst|   ; 19 (19)             ; 13 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |keypad_decoder_nios|keypad_decoder:inst ; keypad_decoder      ; work         ;
+;    |stepdown_clk:inst2|    ; 50 (50)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |keypad_decoder_nios|stepdown_clk:inst2  ; stepdown_clk        ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; keypad_decoder:inst|i[2..31]           ; Stuck at GND due to stuck port data_in ;
+; keypad_decoder:inst|state[1]           ; Merged with keypad_decoder:inst|i[1]   ;
+; keypad_decoder:inst|state[0]           ; Merged with keypad_decoder:inst|i[0]   ;
+; keypad_decoder:inst|j[2..9,11..31]     ; Merged with keypad_decoder:inst|j[10]  ;
+; Total Number of Removed Registers = 61 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 38    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keypad_decoder:inst ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; one            ; 0001  ; Unsigned Binary                         ;
+; two            ; 0010  ; Unsigned Binary                         ;
+; three          ; 0100  ; Unsigned Binary                         ;
+; four           ; 1000  ; Unsigned Binary                         ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 14                          ;
+; cycloneiii_ff         ; 38                          ;
+;     plain             ; 38                          ;
+; cycloneiii_lcell_comb ; 69                          ;
+;     arith             ; 23                          ;
+;         2 data inputs ; 23                          ;
+;     normal            ; 46                          ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 37                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.30                        ;
+; Average LUT depth     ; 2.84                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu Mar 12 01:39:17 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off keypad_decoder_nios -c keypad_decoder_nios
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file stepdown_clk.v
+    Info (12023): Found entity 1: stepdown_clk File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/stepdown_clk.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/nios_sys.v
+    Info (12023): Found entity 1: nios_sys File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/nios_sys.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_reset_controller.v
+    Info (12023): Found entity 1: altera_reset_controller File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_reset_controller.v Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_reset_synchronizer.v
+    Info (12023): Found entity 1: altera_reset_synchronizer File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_reset_synchronizer.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_irq_mapper.sv
+    Info (12023): Found entity 1: nios_sys_irq_mapper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_irq_mapper.sv Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0.v
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_avalon_st_adapter.v
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_avalon_st_adapter File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_avalon_st_adapter.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_avalon_st_adapter_error_adapter_0 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv Line: 66
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_rsp_mux_001.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_rsp_mux_001 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_rsp_mux_001.sv Line: 51
+Info (12021): Found 2 design units, including 2 entities, in source file nios_sys/synthesis/submodules/altera_merlin_arbitrator.sv
+    Info (12023): Found entity 1: altera_merlin_arbitrator File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_arbitrator.sv Line: 103
+    Info (12023): Found entity 2: altera_merlin_arb_adder File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_arbitrator.sv Line: 228
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_rsp_mux.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_rsp_mux File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_rsp_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_rsp_demux_002.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_rsp_demux_002 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_rsp_demux_002.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_rsp_demux.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_rsp_demux File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_rsp_demux.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_cmd_mux_002.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_cmd_mux_002 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_cmd_mux_002.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_cmd_mux.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_cmd_mux File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_cmd_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_cmd_demux_001.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_cmd_demux_001 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_cmd_demux_001.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_cmd_demux.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_cmd_demux File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_cmd_demux.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_merlin_traffic_limiter.sv
+    Info (12023): Found entity 1: altera_merlin_traffic_limiter File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_traffic_limiter.sv Line: 49
+Info (12021): Found 2 design units, including 2 entities, in source file nios_sys/synthesis/submodules/altera_merlin_reorder_memory.sv
+    Info (12023): Found entity 1: altera_merlin_reorder_memory File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_reorder_memory.sv Line: 28
+    Info (12023): Found entity 2: memory_pointer_controller File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_reorder_memory.sv Line: 185
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_avalon_sc_fifo.v
+    Info (12023): Found entity 1: altera_avalon_sc_fifo File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_avalon_sc_fifo.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_avalon_st_pipeline_base.v
+    Info (12023): Found entity 1: altera_avalon_st_pipeline_base File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_avalon_st_pipeline_base.v Line: 22
+Info (12021): Found 2 design units, including 2 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router_004.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_router_004_default_decode File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router_004.sv Line: 45
+    Info (12023): Found entity 2: nios_sys_mm_interconnect_0_router_004 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router_004.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router_002.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_router_002_default_decode File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router_002.sv Line: 45
+    Info (12023): Found entity 2: nios_sys_mm_interconnect_0_router_002 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router_002.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router_001.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_router_001_default_decode File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router_001.sv Line: 45
+    Info (12023): Found entity 2: nios_sys_mm_interconnect_0_router_001 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router_001.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router.sv
+    Info (12023): Found entity 1: nios_sys_mm_interconnect_0_router_default_decode File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router.sv Line: 45
+    Info (12023): Found entity 2: nios_sys_mm_interconnect_0_router File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_mm_interconnect_0_router.sv Line: 84
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_merlin_slave_agent.sv
+    Info (12023): Found entity 1: altera_merlin_slave_agent File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_slave_agent.sv Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+    Info (12023): Found entity 1: altera_merlin_burst_uncompressor File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_burst_uncompressor.sv Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_merlin_master_agent.sv
+    Info (12023): Found entity 1: altera_merlin_master_agent File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_master_agent.sv Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_merlin_slave_translator.sv
+    Info (12023): Found entity 1: altera_merlin_slave_translator File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_slave_translator.sv Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/altera_merlin_master_translator.sv
+    Info (12023): Found entity 1: altera_merlin_master_translator File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/altera_merlin_master_translator.sv Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_sysid_qsys.v
+    Info (12023): Found entity 1: nios_sys_sysid_qsys File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_sysid_qsys.v Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_pio_keypad_data.v
+    Info (12023): Found entity 1: nios_sys_pio_keypad_data File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_pio_keypad_data.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_onchip_memory.v
+    Info (12023): Found entity 1: nios_sys_onchip_memory File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_onchip_memory.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_nios2.v
+    Info (12023): Found entity 1: nios_sys_nios2 File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2.v Line: 9
+Info (12021): Found 27 design units, including 27 entities, in source file nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v
+    Info (12023): Found entity 1: nios_sys_nios2_cpu_ic_data_module File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 21
+    Info (12023): Found entity 2: nios_sys_nios2_cpu_ic_tag_module File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 89
+    Info (12023): Found entity 3: nios_sys_nios2_cpu_bht_module File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 158
+    Info (12023): Found entity 4: nios_sys_nios2_cpu_register_bank_a_module File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 227
+    Info (12023): Found entity 5: nios_sys_nios2_cpu_register_bank_b_module File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 293
+    Info (12023): Found entity 6: nios_sys_nios2_cpu_dc_tag_module File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 359
+    Info (12023): Found entity 7: nios_sys_nios2_cpu_dc_data_module File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 425
+    Info (12023): Found entity 8: nios_sys_nios2_cpu_dc_victim_module File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 494
+    Info (12023): Found entity 9: nios_sys_nios2_cpu_nios2_oci_debug File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 562
+    Info (12023): Found entity 10: nios_sys_nios2_cpu_nios2_oci_break File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 708
+    Info (12023): Found entity 11: nios_sys_nios2_cpu_nios2_oci_xbrk File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 1001
+    Info (12023): Found entity 12: nios_sys_nios2_cpu_nios2_oci_dbrk File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 1262
+    Info (12023): Found entity 13: nios_sys_nios2_cpu_nios2_oci_itrace File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 1451
+    Info (12023): Found entity 14: nios_sys_nios2_cpu_nios2_oci_td_mode File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 1634
+    Info (12023): Found entity 15: nios_sys_nios2_cpu_nios2_oci_dtrace File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 1702
+    Info (12023): Found entity 16: nios_sys_nios2_cpu_nios2_oci_compute_input_tm_cnt File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 1784
+    Info (12023): Found entity 17: nios_sys_nios2_cpu_nios2_oci_fifo_wrptr_inc File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 1856
+    Info (12023): Found entity 18: nios_sys_nios2_cpu_nios2_oci_fifo_cnt_inc File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 1899
+    Info (12023): Found entity 19: nios_sys_nios2_cpu_nios2_oci_fifo File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 1946
+    Info (12023): Found entity 20: nios_sys_nios2_cpu_nios2_oci_pib File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 2432
+    Info (12023): Found entity 21: nios_sys_nios2_cpu_nios2_oci_im File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 2455
+    Info (12023): Found entity 22: nios_sys_nios2_cpu_nios2_performance_monitors File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 2525
+    Info (12023): Found entity 23: nios_sys_nios2_cpu_nios2_avalon_reg File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 2542
+    Info (12023): Found entity 24: nios_sys_nios2_cpu_ociram_sp_ram_module File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 2635
+    Info (12023): Found entity 25: nios_sys_nios2_cpu_nios2_ocimem File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 2700
+    Info (12023): Found entity 26: nios_sys_nios2_cpu_nios2_oci File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 2881
+    Info (12023): Found entity 27: nios_sys_nios2_cpu File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.v Line: 3426
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_nios2_cpu_debug_slave_sysclk.v
+    Info (12023): Found entity 1: nios_sys_nios2_cpu_debug_slave_sysclk File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu_debug_slave_sysclk.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_nios2_cpu_debug_slave_tck.v
+    Info (12023): Found entity 1: nios_sys_nios2_cpu_debug_slave_tck File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu_debug_slave_tck.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_nios2_cpu_debug_slave_wrapper.v
+    Info (12023): Found entity 1: nios_sys_nios2_cpu_debug_slave_wrapper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu_debug_slave_wrapper.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_nios2_cpu_mult_cell.v
+    Info (12023): Found entity 1: nios_sys_nios2_cpu_mult_cell File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu_mult_cell.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_sys/synthesis/submodules/nios_sys_nios2_cpu_test_bench.v
+    Info (12023): Found entity 1: nios_sys_nios2_cpu_test_bench File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu_test_bench.v Line: 21
+Info (12021): Found 5 design units, including 5 entities, in source file nios_sys/synthesis/submodules/nios_sys_jtag_uart.v
+    Info (12023): Found entity 1: nios_sys_jtag_uart_sim_scfifo_w File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_jtag_uart.v Line: 21
+    Info (12023): Found entity 2: nios_sys_jtag_uart_scfifo_w File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_jtag_uart.v Line: 78
+    Info (12023): Found entity 3: nios_sys_jtag_uart_sim_scfifo_r File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_jtag_uart.v Line: 164
+    Info (12023): Found entity 4: nios_sys_jtag_uart_scfifo_r File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_jtag_uart.v Line: 243
+    Info (12023): Found entity 5: nios_sys_jtag_uart File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_jtag_uart.v Line: 331
+Info (12021): Found 1 design units, including 1 entities, in source file keypad_decoder.v
+    Info (12023): Found entity 1: keypad_decoder File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypad_decoder_nios.bdf
+    Info (12023): Found entity 1: keypad_decoder_nios
+Info (12127): Elaborating entity "keypad_decoder_nios" for the top level hierarchy
+Info (12128): Elaborating entity "keypad_decoder" for hierarchy "keypad_decoder:inst"
+Warning (10230): Verilog HDL assignment warning at keypad_decoder.v(12): truncated value with size 4 to match size of target (2) File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder.v Line: 12
+Warning (10230): Verilog HDL assignment warning at keypad_decoder.v(40): truncated value with size 32 to match size of target (2) File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder.v Line: 40
+Info (10264): Verilog HDL Case Statement information at keypad_decoder.v(61): all case item expressions in this case statement are onehot File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder.v Line: 61
+Warning (10030): Net "key_data.data_a" at keypad_decoder.v(9) has no driver or initial value, using a default initial value '0' File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder.v Line: 9
+Warning (10030): Net "key_data.waddr_a" at keypad_decoder.v(9) has no driver or initial value, using a default initial value '0' File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder.v Line: 9
+Warning (10030): Net "key_data.we_a" at keypad_decoder.v(9) has no driver or initial value, using a default initial value '0' File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder.v Line: 9
+Info (12128): Elaborating entity "stepdown_clk" for hierarchy "stepdown_clk:inst2"
+Warning (10230): Verilog HDL assignment warning at stepdown_clk.v(19): truncated value with size 32 to match size of target (24) File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/stepdown_clk.v Line: 19
+Warning (10230): Verilog HDL assignment warning at stepdown_clk.v(24): truncated value with size 32 to match size of target (24) File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/stepdown_clk.v Line: 24
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "keypad_decoder:inst|key_data" is uninferred due to inappropriate RAM size File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/keypad_decoder.v Line: 9
+Warning (12189): Intel FPGA IP Evaluation Mode (Simulation-Only) feature is turned on for all cores in the design
+    Warning (12191): Some cores in this design do not support the Intel FPGA IP Evaluation Mode feature
+        Warning (12192): "Nios II Processor (6AF7_00A2)" does not support the Intel FPGA IP Evaluation Mode feature
+Info (286030): Timing-Driven Synthesis is running
+Warning (20013): Ignored 23 assignments for entity "altera_avalon_sc_fifo" -- entity does not exist in design
+Warning (20013): Ignored 64 assignments for entity "altera_merlin_master_agent" -- entity does not exist in design
+Warning (20013): Ignored 55 assignments for entity "altera_merlin_master_translator" -- entity does not exist in design
+Warning (20013): Ignored 53 assignments for entity "altera_merlin_slave_agent" -- entity does not exist in design
+Warning (20013): Ignored 68 assignments for entity "altera_merlin_slave_translator" -- entity does not exist in design
+Warning (20013): Ignored 34 assignments for entity "altera_merlin_traffic_limiter" -- entity does not exist in design
+Warning (20013): Ignored 35 assignments for entity "altera_reset_controller" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys" -- entity does not exist in design
+Warning (20013): Ignored 14 assignments for entity "nios_sys_irq_mapper" -- entity does not exist in design
+Warning (20013): Ignored 24 assignments for entity "nios_sys_jtag_uart" -- entity does not exist in design
+Warning (20013): Ignored 12 assignments for entity "nios_sys_mm_interconnect_0" -- entity does not exist in design
+Warning (20013): Ignored 32 assignments for entity "nios_sys_mm_interconnect_0_avalon_st_adapter" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_avalon_st_adapter_error_adapter_0" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_sys_mm_interconnect_0_cmd_demux" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_sys_mm_interconnect_0_cmd_demux_001" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_cmd_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_cmd_mux_002" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_mm_interconnect_0_router" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_mm_interconnect_0_router_001" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_mm_interconnect_0_router_002" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_mm_interconnect_0_router_004" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_sys_mm_interconnect_0_rsp_demux" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_sys_mm_interconnect_0_rsp_demux_002" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_rsp_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_sys_mm_interconnect_0_rsp_mux_001" -- entity does not exist in design
+Warning (20013): Ignored 172 assignments for entity "nios_sys_nios2" -- entity does not exist in design
+Warning (20013): Ignored 179 assignments for entity "nios_sys_nios2_cpu" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_sys_onchip_memory" -- entity does not exist in design
+Warning (20013): Ignored 23 assignments for entity "nios_sys_pio_keypad_data" -- entity does not exist in design
+Warning (20013): Ignored 10 assignments for entity "nios_sys_sysid_qsys" -- entity does not exist in design
+Info (144001): Generated suppressed messages file C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/output_files/keypad_decoder_nios.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "reset"
+Info (21057): Implemented 83 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 69 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 4827 megabytes
+    Info: Processing ended: Thu Mar 12 01:39:29 2020
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:22
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/output_files/keypad_decoder_nios.map.smsg.
+
+

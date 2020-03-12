@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clock'
+Slack : -4.319
+TNS   : -66.808
+
+Type  : Slow 1200mV 85C Model Setup 'stepdown_clk:inst2|clkout'
+Slack : -1.281
+TNS   : -7.600
+
+Type  : Slow 1200mV 85C Model Hold 'stepdown_clk:inst2|clkout'
+Slack : 0.360
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : 0.733
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -40.175
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'stepdown_clk:inst2|clkout'
+Slack : -1.487
+TNS   : -19.331
+
+Type  : Slow 1200mV 0C Model Setup 'clock'
+Slack : -4.054
+TNS   : -60.873
+
+Type  : Slow 1200mV 0C Model Setup 'stepdown_clk:inst2|clkout'
+Slack : -1.101
+TNS   : -6.492
+
+Type  : Slow 1200mV 0C Model Hold 'stepdown_clk:inst2|clkout'
+Slack : 0.323
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock'
+Slack : 0.693
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -40.175
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'stepdown_clk:inst2|clkout'
+Slack : -1.487
+TNS   : -19.331
+
+Type  : Fast 1200mV 0C Model Setup 'clock'
+Slack : -1.119
+TNS   : -10.354
+
+Type  : Fast 1200mV 0C Model Setup 'stepdown_clk:inst2|clkout'
+Slack : 0.123
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'stepdown_clk:inst2|clkout'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock'
+Slack : 0.250
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -32.240
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'stepdown_clk:inst2|clkout'
+Slack : -1.000
+TNS   : -13.000
+
+------------------------------------------------------------
