@@ -1,5 +1,5 @@
 Power Analyzer report for keypad_decoder_nios
-Thu Mar 12 01:39:38 2020
+Sun Mar 22 19:17:57 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -52,29 +52,29 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.07        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   1.4%      ;
+;     Processors 2-6         ;   0.4%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Thu Mar 12 01:39:38 2020            ;
+; Power Analyzer Status                  ; Successful - Sun Mar 22 19:17:57 2020            ;
 ; Quartus Prime Version                  ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition      ;
 ; Revision Name                          ; keypad_decoder_nios                              ;
 ; Top-level Entity Name                  ; keypad_decoder_nios                              ;
 ; Family                                 ; MAX 10                                           ;
 ; Device                                 ; 10M08SAU169C8G                                   ;
 ; Power Models                           ; Final                                            ;
-; Total Thermal Power Dissipation        ; 148.68 mW                                        ;
+; Total Thermal Power Dissipation        ; 159.51 mW                                        ;
 ; Core Dynamic Thermal Power Dissipation ; 0.00 mW                                          ;
-; Core Static Thermal Power Dissipation  ; 110.73 mW                                        ;
-; I/O Thermal Power Dissipation          ; 37.95 mW                                         ;
+; Core Static Thermal Power Dissipation  ; 121.79 mW                                        ;
+; I/O Thermal Power Dissipation          ; 37.72 mW                                         ;
 ; Power Estimation Confidence            ; Low: user provided insufficient toggle rate data ;
 +----------------------------------------+--------------------------------------------------+
 
@@ -90,6 +90,7 @@ refer to the applicable agreement for further details.
 ; Default Power Input I/O Toggle Rate                              ; 12.5%                                 ; 12.5%         ;
 ; Preset Cooling Solution                                          ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ;               ;
 ; Board thermal model                                              ; None (CONSERVATIVE)                   ;               ;
+; VCCA voltage                                                     ; 3.3V                                  ;               ;
 ; Default Power Toggle Rate                                        ; 12.5%                                 ; 12.5%         ;
 ; Use vectorless estimation                                        ; On                                    ; On            ;
 ; Use Input Files                                                  ; Off                                   ; Off           ;
@@ -105,20 +106,16 @@ refer to the applicable agreement for further details.
 +------------------------------------------------------------------+---------------------------------------+---------------+
 
 
-+-----------------------------------------------------------------+
-; Indeterminate Toggle Rates                                      ;
-+-----------------------------------+-----------------------------+
-; Node                              ; Reason                      ;
-+-----------------------------------+-----------------------------+
-; reset                             ; No valid clock domain found ;
-; columns[0]                        ; No valid clock domain found ;
-; columns[1]                        ; No valid clock domain found ;
-; columns[2]                        ; No valid clock domain found ;
-; columns[3]                        ; No valid clock domain found ;
-; clock                             ; No valid clock domain found ;
-; clock~inputclkctrl                ; No valid clock domain found ;
-; stepdown_clk:inst2|clkout~clkctrl ; No valid clock domain found ;
-+-----------------------------------+-----------------------------+
++-------------------------------------+
+; Indeterminate Toggle Rates          ;
++-------+-----------------------------+
+; Node  ; Reason                      ;
++-------+-----------------------------+
+; in[0] ; No valid clock domain found ;
+; in[3] ; No valid clock domain found ;
+; in[2] ; No valid clock domain found ;
+; in[1] ; No valid clock domain found ;
++-------+-----------------------------+
 
 
 +--------------------------------------------------------------------------+
@@ -129,12 +126,12 @@ refer to the applicable agreement for further details.
 ; Device power characteristics                ; Typical                    ;
 ;                                             ;                            ;
 ; Voltages                                    ;                            ;
-;     VCCA                                    ; 3.00 V                     ;
-;     VCC_ONE                                 ; 3.00 V                     ;
+;     VCCA                                    ; 3.30 V                     ;
+;     VCC_ONE                                 ; 3.30 V                     ;
 ;     3.3-V LVTTL I/O Standard                ; 3.3 V                      ;
 ;     3.3 V Schmitt Trigger I/O Standard      ; 3.3 V                      ;
 ;                                             ;                            ;
-; Auto computed junction temperature          ; 27.9 degrees Celsius       ;
+; Auto computed junction temperature          ; 28.1 degrees Celsius       ;
 ;     Ambient temperature                     ; 25.0 degrees Celsius       ;
 ;     Junction-to-Case thermal resistance     ; 11.20 degrees Celsius/Watt ;
 ;     Case-to-Heat Sink thermal resistance    ; 0.10 degrees Celsius/Watt  ;
@@ -152,17 +149,15 @@ refer to the applicable agreement for further details.
 (1) The "Thermal Power Dissipation by Block" Table has been hidden. To show this table, please select the "Write power dissipation by block to report file" option under "PowerPlay Power Analyzer Settings".
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Thermal Power Dissipation by Block Type                                                                                                                                                                            ;
-+---------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
-; Block Type          ; Total Thermal Power by Block Type ; Block Thermal Dynamic Power ; Block Thermal Static Power (1) ; Routing Thermal Dynamic Power ; Block Average Toggle Rate (millions of transitions / sec) ;
-+---------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
-; Combinational cell  ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
-; Clock control block ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
-; Register cell       ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
-; I/O                 ; 0.99 mW                           ; 0.00 mW                     ; 0.99 mW                        ; 0.00 mW                       ;    0.000                                                  ;
-; Voltage Regulator   ; 0.00 mW                           ; 0.00 mW                     ; 0.00 mW                        ; --                            ; --                                                        ;
-+---------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Thermal Power Dissipation by Block Type                                                                                                                                                                           ;
++--------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
+; Block Type         ; Total Thermal Power by Block Type ; Block Thermal Dynamic Power ; Block Thermal Static Power (1) ; Routing Thermal Dynamic Power ; Block Average Toggle Rate (millions of transitions / sec) ;
++--------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
+; Combinational cell ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
+; I/O                ; 0.76 mW                           ; 0.00 mW                     ; 0.76 mW                        ; 0.00 mW                       ;    0.000                                                  ;
+; Voltage Regulator  ; 0.00 mW                           ; 0.00 mW                     ; 0.00 mW                        ; --                            ; --                                                        ;
++--------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
 (1) The "Block Thermal Static Power" for all block types except Pins and the Voltage Regulator, if one exists, is part of the "Core Static Thermal Power Dissipation" value found on the PowerPlay Power Analyzer-->Summary report panel. The "Core Static Thermal Power Dissipation" also contains the thermal static power dissipated by the routing.
 
 
@@ -171,10 +166,9 @@ refer to the applicable agreement for further details.
 +-------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-----------------------------------------------------+
 ; Compilation Hierarchy Node          ; Total Thermal Power by Hierarchy (1) ; Block Thermal Dynamic Power (1) ; Block Thermal Static Power (1)(2) ; Routing Thermal Dynamic Power (1) ; Full Hierarchy Name                                 ;
 +-------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-----------------------------------------------------+
-; |keypad_decoder_nios                ; 0.99 mW (0.99 mW)                    ; 0.00 mW (0.00 mW)               ; 0.99 mW (0.99 mW)                 ; 0.00 mW (0.00 mW)                 ; |keypad_decoder_nios                                ;
+; |keypad_decoder_nios                ; 0.76 mW (0.76 mW)                    ; 0.00 mW (0.00 mW)               ; 0.76 mW (0.76 mW)                 ; 0.00 mW (0.00 mW)                 ; |keypad_decoder_nios                                ;
 ;     |hard_block:auto_generated_inst ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |keypad_decoder_nios|hard_block:auto_generated_inst ;
 ;     |keypad_decoder:inst            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |keypad_decoder_nios|keypad_decoder:inst            ;
-;     |stepdown_clk:inst2             ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |keypad_decoder_nios|stepdown_clk:inst2             ;
 +-------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-----------------------------------------------------+
 (1) Value in parentheses is the power consumed at that level of hierarchy. Value not in parentheses is the power consumed at that level of hierarchy plus the power consumed by all levels of hierarchy below it.
 
@@ -195,7 +189,7 @@ refer to the applicable agreement for further details.
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; Voltage Supply ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; VCCIO          ; 11.56 mA                ; 0.00 mA                   ; 11.56 mA                 ; 11.56 mA                         ;
+; VCCIO          ; 11.48 mA                ; 0.00 mA                   ; 11.48 mA                 ; 11.48 mA                         ;
 ; VCCA           ; 0.00 mA                 ; 0.00 mA                   ; 0.00 mA                  ; 0.00 mA                          ;
 ; VCC_ONE        ; 36.91 mA                ; 0.00 mA                   ; 36.91 mA                 ; 36.91 mA                         ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
@@ -208,15 +202,15 @@ refer to the applicable agreement for further details.
 +----------+---------------+---------------------+-----------------------+----------------------+
 ; I/O Bank ; VCCIO Voltage ; Total Current Drawn ; Dynamic Current Drawn ; Static Current Drawn ;
 +----------+---------------+---------------------+-----------------------+----------------------+
-; 1A       ; 3.3V          ; 1.65 mA             ; 0.00 mA               ; 1.65 mA              ;
+; 1A       ; 3.3V          ; 1.60 mA             ; 0.00 mA               ; 1.60 mA              ;
 ; 1B       ; 3.3V          ; 1.67 mA             ; 0.00 mA               ; 1.67 mA              ;
-; 2        ; 3.3V          ; 1.62 mA             ; 0.00 mA               ; 1.62 mA              ;
+; 2        ; 3.3V          ; 1.65 mA             ; 0.00 mA               ; 1.65 mA              ;
 ; 3        ; 3.3V          ; 1.60 mA             ; 0.00 mA               ; 1.60 mA              ;
 ; 4        ; --            ; --                  ; --                    ; --                   ;
-; 5        ; 3.3V          ; 1.68 mA             ; 0.00 mA               ; 1.68 mA              ;
+; 5        ; 3.3V          ; 1.63 mA             ; 0.00 mA               ; 1.63 mA              ;
 ; 6        ; 3.3V          ; 1.60 mA             ; 0.00 mA               ; 1.60 mA              ;
 ; 7        ; --            ; --                  ; --                    ; --                   ;
-; 8        ; 3.3V          ; 1.75 mA             ; 0.00 mA               ; 1.75 mA              ;
+; 8        ; 3.3V          ; 1.73 mA             ; 0.00 mA               ; 1.73 mA              ;
 +----------+---------------+---------------------+-----------------------+----------------------+
 
 
@@ -225,37 +219,37 @@ refer to the applicable agreement for further details.
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; VCCIO Voltage ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; 3.3V          ; 11.56 mA                ; 0.00 mA                   ; 11.56 mA                 ; 11.56 mA                         ;
+; 3.3V          ; 11.48 mA                ; 0.00 mA                   ; 11.48 mA                 ; 11.48 mA                         ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 (1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
 (2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Confidence Metric Details                                                                                                                       ;
-+----------------------------------------------------------------------------------------+-------------+------------+-------------+---------------+
-; Data Source                                                                            ; Total       ; Pin        ; Registered  ; Combinational ;
-+----------------------------------------------------------------------------------------+-------------+------------+-------------+---------------+
-; Simulation (from file)                                                                 ;             ;            ;             ;               ;
-;     -- Number of signals with Toggle Rate from Simulation                              ; 0 (0.0%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Simulation                       ; 0 (0.0%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 0 (0.0%)      ;
-;                                                                                        ;             ;            ;             ;               ;
-; Node, entity or clock assignment                                                       ;             ;            ;             ;               ;
-;     -- Number of signals with Toggle Rate from Node, entity or clock assignment        ; 0 (0.0%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 2 (1.2%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 2 (1.8%)      ;
-;                                                                                        ;             ;            ;             ;               ;
-; Vectorless estimation                                                                  ;             ;            ;             ;               ;
-;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 156 (92.3%) ; 9 (40.9%)  ; 38 (100.0%) ; 109 (100.0%)  ;
-;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 12 (7.1%)   ; 1 (4.5%)   ; 0 (0.0%)    ; 11 (10.1%)    ;
-;     -- Number of signals with Static Probability from Vectorless estimation            ; 154 (91.1%) ; 9 (40.9%)  ; 38 (100.0%) ; 107 (98.2%)   ;
-;                                                                                        ;             ;            ;             ;               ;
-; Default assignment                                                                     ;             ;            ;             ;               ;
-;     -- Number of signals with Toggle Rate from Default assignment                      ; 0 (0.0%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Default assignment               ; 13 (7.7%)   ; 13 (59.1%) ; 0 (0.0%)    ; 0 (0.0%)      ;
-;                                                                                        ;             ;            ;             ;               ;
-; Assumed 0                                                                              ;             ;            ;             ;               ;
-;     -- Number of signals with Toggle Rate assumed 0                                    ; 13 (7.7%)   ; 13 (59.1%) ; 0 (0.0%)    ; 0 (0.0%)      ;
-+----------------------------------------------------------------------------------------+-------------+------------+-------------+---------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Confidence Metric Details                                                                                                                     ;
++----------------------------------------------------------------------------------------+------------+------------+------------+---------------+
+; Data Source                                                                            ; Total      ; Pin        ; Registered ; Combinational ;
++----------------------------------------------------------------------------------------+------------+------------+------------+---------------+
+; Simulation (from file)                                                                 ;            ;            ;            ;               ;
+;     -- Number of signals with Toggle Rate from Simulation                              ; 0 (0.0%)   ; 0 (0.0%)   ; 0 (100.0%) ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Simulation                       ; 0 (0.0%)   ; 0 (0.0%)   ; 0 (100.0%) ; 0 (0.0%)      ;
+;                                                                                        ;            ;            ;            ;               ;
+; Node, entity or clock assignment                                                       ;            ;            ;            ;               ;
+;     -- Number of signals with Toggle Rate from Node, entity or clock assignment        ; 0 (0.0%)   ; 0 (0.0%)   ; 0 (100.0%) ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 0 (0.0%)   ; 0 (0.0%)   ; 0 (100.0%) ; 0 (0.0%)      ;
+;                                                                                        ;            ;            ;            ;               ;
+; Vectorless estimation                                                                  ;            ;            ;            ;               ;
+;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 20 (64.5%) ; 6 (35.3%)  ; 0 (100.0%) ; 14 (100.0%)   ;
+;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 15 (48.4%) ; 4 (23.5%)  ; 0 (100.0%) ; 11 (78.6%)    ;
+;     -- Number of signals with Static Probability from Vectorless estimation            ; 20 (64.5%) ; 6 (35.3%)  ; 0 (100.0%) ; 14 (100.0%)   ;
+;                                                                                        ;            ;            ;            ;               ;
+; Default assignment                                                                     ;            ;            ;            ;               ;
+;     -- Number of signals with Toggle Rate from Default assignment                      ; 0 (0.0%)   ; 0 (0.0%)   ; 0 (100.0%) ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Default assignment               ; 11 (35.5%) ; 11 (64.7%) ; 0 (100.0%) ; 0 (0.0%)      ;
+;                                                                                        ;            ;            ;            ;               ;
+; Assumed 0                                                                              ;            ;            ;            ;               ;
+;     -- Number of signals with Toggle Rate assumed 0                                    ; 11 (35.5%) ; 11 (64.7%) ; 0 (100.0%) ; 0 (0.0%)      ;
++----------------------------------------------------------------------------------------+------------+------------+------------+---------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------+
@@ -272,56 +266,15 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Power Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Mar 12 01:39:37 2020
+    Info: Processing started: Sun Mar 22 19:17:56 2020
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off keypad_decoder_nios -c keypad_decoder_nios
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Info (332104): Reading SDC File: 'nios_sys/synthesis/submodules/altera_reset_controller.sdc'
-Info (332104): Reading SDC File: 'nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc'
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(46): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_break:the_nios_sys_nios2_cpu_nios2_oci_break|break_readreg* could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(46): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr* could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(46): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
-    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_oci_break_path|break_readreg*] -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr*] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(46): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 46
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(47): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_debug:the_nios_sys_nios2_cpu_nios2_oci_debug|*resetlatch could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(47): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr[33] could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(47): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
-    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_oci_debug_path|*resetlatch]     -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr[33]] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(47): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 47
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(48): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_debug:the_nios_sys_nios2_cpu_nios2_oci_debug|monitor_ready could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(48): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr[0] could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(48): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
-    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_oci_debug_path|monitor_ready]  -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr[0]] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(48): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 48
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(49): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_debug:the_nios_sys_nios2_cpu_nios2_oci_debug|monitor_error could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(49): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr[34] could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(49): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
-    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_oci_debug_path|monitor_error]  -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr[34]] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(49): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 49
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(50): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_ocimem:the_nios_sys_nios2_cpu_nios2_ocimem|*MonDReg* could not be matched with a keeper File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 50
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(50): Argument <from> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 50
-    Info (332050): set_false_path -from [get_keepers *$nios_sys_nios2_cpu_ocimem_path|*MonDReg*] -to [get_keepers *$nios_sys_nios2_cpu_jtag_sr*] File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 50
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(50): Argument <to> is an empty collection File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 50
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(51): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_tck:the_nios_sys_nios2_cpu_debug_slave_tck|*sr* could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(51): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_sysclk:the_nios_sys_nios2_cpu_debug_slave_sysclk|*jdo* could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(51): Argument <from> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
-    Info (332050): set_false_path -from *$nios_sys_nios2_cpu_jtag_sr*    -to *$nios_sys_nios2_cpu_jtag_sysclk_path|*jdo* File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(51): Argument <to> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 51
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(52): sld_hub:*|irf_reg* could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(52): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_debug_slave_wrapper:the_nios_sys_nios2_cpu_debug_slave_wrapper|nios_sys_nios2_cpu_debug_slave_sysclk:the_nios_sys_nios2_cpu_debug_slave_sysclk|ir* could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(52): Argument <from> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
-    Info (332050): set_false_path -from sld_hub:*|irf_reg* -to *$nios_sys_nios2_cpu_jtag_sysclk_path|ir* File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(52): Argument <to> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 52
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(53): sld_hub:*|sld_shadow_jsm:shadow_jsm|state[1] could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
-Warning (332174): Ignored filter at nios_sys_nios2_cpu.sdc(53): *nios_sys_nios2_cpu:*|nios_sys_nios2_cpu_nios2_oci:the_nios_sys_nios2_cpu_nios2_oci|nios_sys_nios2_cpu_nios2_oci_debug:the_nios_sys_nios2_cpu_nios2_oci_debug|monitor_go could not be matched with a clock or keeper or register or port or pin or cell or partition File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(53): Argument <from> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
-    Info (332050): set_false_path -from sld_hub:*|sld_shadow_jsm:shadow_jsm|state[1] -to *$nios_sys_nios2_cpu_oci_debug_path|monitor_go File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
-Warning (332049): Ignored set_false_path at nios_sys_nios2_cpu.sdc(53): Argument <to> is not an object ID File: C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/test/keypad_decoder_nios/nios_sys/synthesis/submodules/nios_sys_nios2_cpu.sdc Line: 53
-Warning (332060): Node: clock was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register stepdown_clk:inst2|counter[0] is being clocked by clock
-Warning (332060): Node: stepdown_clk:inst2|clkout was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register keypad_decoder:inst|key[3] is being clocked by stepdown_clk:inst2|clkout
+Warning (335093): The Timing Analyzer is analyzing 1 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'keypad_decoder_nios.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Warning (332060): Node: in[0] was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Latch keypad_decoder:inst|key[3] is being clocked by in[0]
 Warning (332068): No clocks defined in design.
 Info (223000): Starting Vectorless Power Activity Estimation
 Warning (222013): Relative toggle rates could not be calculated because no clock domain could be identified for some nodes
@@ -330,11 +283,11 @@ Info (218000): Using Advanced I/O Power to simulate I/O buffers with the specifi
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (215049): Average toggle rate for this design is 0.000 millions of transitions / sec
-Info (215031): Total thermal power estimate for the design is 148.68 mW
-Info: Quartus Prime Power Analyzer was successful. 0 errors, 36 warnings
-    Info: Peak virtual memory: 4846 megabytes
-    Info: Processing ended: Thu Mar 12 01:39:38 2020
+Info (215031): Total thermal power estimate for the design is 159.51 mW
+Info: Quartus Prime Power Analyzer was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4853 megabytes
+    Info: Processing ended: Sun Mar 22 19:17:57 2020
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 

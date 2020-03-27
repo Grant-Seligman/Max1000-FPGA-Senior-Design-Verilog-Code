@@ -8,51 +8,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "key[2]",
-					"strict" : false
-				},
-				{
-					"name" : "key[1]",
-					"strict" : false
-				},
-				{
 					"name" : "key[0]",
 					"strict" : false
 				},
 				{
-					"name" : "rows[3]",
+					"name" : "in[0]",
 					"strict" : false
 				},
 				{
-					"name" : "rows[2]",
+					"name" : "in[3]",
 					"strict" : false
 				},
 				{
-					"name" : "rows[1]",
+					"name" : "in[2]",
 					"strict" : false
 				},
 				{
-					"name" : "rows[0]",
-					"strict" : false
-				},
-				{
-					"name" : "columns[0]",
-					"strict" : false
-				},
-				{
-					"name" : "columns[1]",
-					"strict" : false
-				},
-				{
-					"name" : "columns[2]",
-					"strict" : false
-				},
-				{
-					"name" : "columns[3]",
-					"strict" : false
-				},
-				{
-					"name" : "clock",
+					"name" : "in[1]",
 					"strict" : false
 				}
 			]
