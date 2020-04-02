@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Apr 02 00:48:05 2020
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : keypad_decoder_nios
+Top-level Entity Name : keypad_decoder_nios
+Family : MAX 10
+Device : 10M08SAU169C8G
+Timing Models : Final
+Total logic elements : 82 / 8,064 ( 1 % )
+    Total combinational functions : 81 / 8,064 ( 1 % )
+    Dedicated logic registers : 33 / 8,064 ( < 1 % )
+Total registers : 33
+Total pins : 13 / 130 ( 10 % )
+Total virtual pins : 0
+Total memory bits : 0 / 387,072 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 48 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )
