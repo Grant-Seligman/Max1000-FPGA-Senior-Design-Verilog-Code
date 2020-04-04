@@ -12,7 +12,6 @@ int main()
 	{
 		printf("%i\t", count);
 		IOWR_ALTERA_AVALON_PIO_DATA(PIO_DATA_BASE, count);
-		delay = 0;
 
 		while(delay < 24000000)
 		{
@@ -25,7 +24,6 @@ int main()
 		{
 			count = 0;
 		}
-
 		count++;
 	}
 	return 0;

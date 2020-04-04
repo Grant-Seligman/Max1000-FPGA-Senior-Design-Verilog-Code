@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Mar 11, 2020 11:56:36 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1583945796616</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Apr 3, 2020 11:58:02 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1585976282865</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\James\Max1000-FPGA-Senior-Design-Verilog-Code\microprocessors\test\seven_segment_nios\software\counter_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\nios_sys.sopcinfo</SopcDesignFile>
