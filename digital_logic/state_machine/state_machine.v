@@ -30,12 +30,10 @@ module state_machine_rtl(out, dir, rst, clk);
     always@(posedge clk) begin
 
         // If rst is low, return to state s0
-        if (!rst)
-            out = s0;
+        if (!rst) out = s0;
         
         // Check current state and if dir = 0 increment state, if dir = 1 decrement state
         case(out)
-
                 s0: if(!dir) out = s1;
                     else     out = s7;  
 
@@ -59,10 +57,6 @@ module state_machine_rtl(out, dir, rst, clk);
 
                 s7: if(!dir) out = s0;
                     else     out = s6;
-
         endcase
-
-
     end
-
 endmodule

@@ -35,11 +35,10 @@ end
 //Counts down until it reaches zero then resets
 always @(posedge clkin) begin
     if (counter == 0) begin
-            counter <= 1199999; //Blocking statement. Remember you start counting at zero.
-            clkout <= ~clkout;  //Blocking statement. ~clkout is the same as !clkout
-	    end 
-	else begin
-            counter <= counter -1; //Blocking statement
+        counter <= 1199999; //Blocking statement. Remember you start counting at zero.
+        clkout <= ~clkout;  //Blocking statement. ~clkout is the same as !clkout
+	end else begin
+        counter <= counter -1; //Blocking statement
 	end
 end
 
