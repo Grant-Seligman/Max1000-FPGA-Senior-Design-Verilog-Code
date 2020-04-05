@@ -58,7 +58,10 @@ module seven_seg_decoder(out, in);
   parameter c     = 8'b1001_1100;
   parameter d     = 8'b0111_1010;
   parameter e     = 8'b1001_1110;
-  parameter f     = 8'b1000_1110; 
+  parameter f     = 8'b1000_1110;
+  
+//instead of running of a clock, this aways block waits for and input
+//from the keypad. Thus making this module asynchronous. 
 
   always @(in) begin
     case (in)
