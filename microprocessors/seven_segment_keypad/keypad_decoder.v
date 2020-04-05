@@ -37,7 +37,7 @@ module keypad_decoder(key, row, column, clk);
 				else if (!column[3]) key = 4'b1011;
 				else row = 4'b1101;
 			4'b1101: 
-				if 		(!column[0]) key = 4'b011;
+				if 		(!column[0]) key = 4'b0111;
 				else if (!column[1]) key = 4'b1000;
 				else if (!column[2]) key = 4'b1001;
 				else if (!column[3]) key = 4'b1100;
