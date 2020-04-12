@@ -1,14 +1,14 @@
-module stepdown_770Hz(outclk, inclk);
+module stepdown_1477Hz(outclk, inclk);
     output reg outclk;
     input wire inclk;
 
-    reg [9:0] count;
+    reg [4:0] count;
 
-    initial begin count = 10'b0; outclk = 0; end
+    initial begin count = 5'b0; outclk = 0; end
 
     always@(posedge inclk) begin
         count = count + 1;
-        if (count == 649) begin
+        if (count == 14) begin
             outclk = ~outclk;
             count = 0;
         end
