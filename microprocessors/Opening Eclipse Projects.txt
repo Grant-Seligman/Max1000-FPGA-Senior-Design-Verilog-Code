@@ -1,0 +1,8 @@
+How to open an existing project in Eclipse:
+Source: https://stackoverflow.com/questions/14220633/how-to-open-an-existing-project-in-eclipse
+
+From the main menu bar, select command link File > Import.... The Import wizard opens.
+Select General > Existing Project into Workspace and click Next.
+Choose either Select root directory or Select archive file and click the associated Browse to locate the directory or file containing the projects.
+Under Projects select the project or projects which you would like to import.
+Click Finish to start the import.
