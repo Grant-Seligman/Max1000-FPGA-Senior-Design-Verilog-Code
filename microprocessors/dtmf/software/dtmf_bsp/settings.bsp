@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Apr 11, 2020 7:28:36 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1586651316583</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Apr 11, 2020 8:55:39 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1586656539410</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\Campo\Max1000-FPGA-Senior-Design-Verilog-Code\microprocessors\dtmf\software\dtmf_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\nios_sys.sopcinfo</SopcDesignFile>

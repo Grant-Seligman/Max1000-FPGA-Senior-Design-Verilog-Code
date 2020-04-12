@@ -4,7 +4,7 @@
 // MODULE: altpll 
 
 // ============================================================
-// File Name: clk_20K.v
+// File Name: clk_1M.v
 // Megafunction Name(s):
 // 			altpll
 //
@@ -31,7 +31,7 @@
 //Intel and sold by Intel or its authorized distributors.  Please
 //refer to the applicable agreement for further details.
 
-module clk_20K (
+module clk_1M (
 	inclk0,
 	c0);
 
@@ -104,7 +104,7 @@ endmodule
 // Retrieval info: PRIVATE: PLL_PFDENA_CHECK STRING "0"
 // Retrieval info: PRIVATE: PLL_TARGET_HARCOPY_CHECK NUMERIC "0"
 // Retrieval info: PRIVATE: PRIMARY_CLK_COMBO STRING "inclk0"
-// Retrieval info: PRIVATE: RECONFIG_FILE STRING "clk_20K.mif"
+// Retrieval info: PRIVATE: RECONFIG_FILE STRING "clk_1M.mif"
 // Retrieval info: PRIVATE: SACN_INPUTS_CHECK STRING "0"
 // Retrieval info: PRIVATE: SCAN_FEATURE_ENABLED STRING "1"
 // Retrieval info: PRIVATE: SELF_RESET_LOCK_LOSS STRING "0"
@@ -187,12 +187,12 @@ endmodule
 // Retrieval info: CONNECT: @inclk 0 0 1 1 GND 0 0 0 0
 // Retrieval info: CONNECT: @inclk 0 0 1 0 inclk0 0 0 0 0
 // Retrieval info: CONNECT: c0 0 0 0 0 @clk 0 0 1 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL clk_20K.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL clk_20K.ppf TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL clk_20K.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL clk_20K.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL clk_20K.bsf TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL clk_20K_inst.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL clk_20K_bb.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL clk_1M.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL clk_1M.ppf TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL clk_1M.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL clk_1M.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL clk_1M.bsf TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL clk_1M_inst.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL clk_1M_bb.v TRUE
 // Retrieval info: LIB_FILE: altera_mf
 // Retrieval info: CBX_MODULE_PREFIX: ON

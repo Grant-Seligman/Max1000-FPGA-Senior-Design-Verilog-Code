@@ -21,7 +21,7 @@ refer to the applicable agreement for further details.
 (header "symbol" (version "1.2"))
 (symbol
 	(rect 0 0 240 152)
-	(text "clk_20K" (rect 97 0 152 16)(font "Arial" (font_size 10)))
+	(text "clk_1M" (rect 99 0 148 16)(font "Arial" (font_size 10)))
 	(text "inst" (rect 8 136 25 148)(font "Arial" ))
 	(port
 		(pt 0 64)
