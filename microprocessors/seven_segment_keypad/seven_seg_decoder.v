@@ -24,64 +24,47 @@
 //    |  D  |
 //     -----     * DP
 //
-// A - pin 10
-// B - pin 9
-// C - pin 8
-// DP - pin 7
-// GND - pin 6
-// D - pin 5
-// E - pin 4
-// G - pin 3
-// F - pin 2
-// GND - pin 1
+//      DP G F E D C B A  GND
+// Pin  7  3 2 4 5 8 9 10 1&6
+///////////////////////////////////////////////////////////////////////////////
+// out[0]  - A   | out[7]	Output	PIN_H13
+// out[1]  - B   | out[6]	Output	PIN_E3
+// out[2]  - C   | out[5]	Output	PIN_F1
+// out[3]  - D   | out[4]	Output	PIN_E4
+// out[4]  - E   | out[3]	Output	PIN_H8
+// out[5]  - F   | out[2]	Output	PIN_H10
+// out[6]  - G   | out[1]	Output	PIN_J10
+// out[7]  - DP  | out[0]	Output	PIN_K12
 ///////////////////////////////////////////////////////////////////////////////
 
 module seven_seg_decoder(out, in);
   output reg [7:0] out;
   input wire [3:0] in;
-
-  // Layout of bits are in order A-G, LSB is DP
-  //                   ABCD_EFG[DP]
-  parameter dp    = 8'b0000_0001;
-  parameter zero  = 8'b1111_1100;
-  parameter one   = 8'b0110_0000;
-  parameter two   = 8'b1101_1010;
-  parameter three = 8'b1111_0010;
-  parameter four  = 8'b0110_0110;
-  parameter five  = 8'b1011_0110;
-  parameter six   = 8'b1011_1110;
-  parameter seven = 8'b1110_0000;
-  parameter eight = 8'b1111_1110;
-  parameter nine  = 8'b1110_0110;
-  parameter a     = 8'b1110_1110;
-  parameter b     = 8'b0011_1110;
-  parameter c     = 8'b1001_1100;
-  parameter d     = 8'b0111_1010;
-  parameter e     = 8'b1001_1110;
-  parameter f     = 8'b1000_1110;
   
-//instead of running of a clock, this aways block waits for and input
-//from the keypad. Thus making this module asynchronous. 
+// Instead of running of a clock, this aways block waits for and input
+// from the keypad. Thus making this module asynchronous. 
 
   always @(in) begin
     case (in)
-      4'd0  : out = zero;
-      4'd1  : out = one;
-      4'd2  : out = two;
-      4'd3  : out = three;
-      4'd4  : out = four;
-      4'd5  : out = five;
-      4'd6  : out = six;
-      4'd7  : out = seven;
-      4'd8  : out = eight;
-      4'd9  : out = nine;
-      4'd10 : out = a;
-      4'd11 : out = b;
-      4'd12 : out = c;
-      4'd13 : out = d;
-      4'd14 : out = e;
-      4'd15 : out = f;
-  	  default : out = dp;
+      // Layout of bits are MSB is DP, then decending G-A
+      //              [DP]GFE DCBA
+      4'h0 :    out = 8'b0011_1111;
+      4'h1 :    out = 8'b0000_0110;
+      4'h2 :    out = 8'b0101_1011;
+      4'h3 :    out = 8'b0100_1111;
+      4'h4 :    out = 8'b0110_0110;
+      4'h5 :    out = 8'b0110_1101;
+      4'h6 :    out = 8'b0111_1101;
+      4'h7 :    out = 8'b0000_0111;
+      4'h8 :    out = 8'b0111_1111;
+      4'h9 :    out = 8'b0110_0111;
+      4'hA :    out = 8'b0111_0111;
+      4'hB :    out = 8'b0111_1100;
+      4'hC :    out = 8'b0011_1001;
+      4'hD :    out = 8'b0101_1110;
+      4'hE :    out = 8'b0111_1001;
+      4'hF :    out = 8'b0111_0001;
+  	  default : out = 8'b1000_0000;
     endcase
   end 
 endmodule

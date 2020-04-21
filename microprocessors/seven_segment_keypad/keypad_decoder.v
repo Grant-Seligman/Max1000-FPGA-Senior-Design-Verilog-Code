@@ -1,9 +1,5 @@
 //Keypad Decoder Module
 /*
-
-*/
-
-/*
 AUTHOR: GABE GARVES
 EDITED BY: GRANT SELIGMAN
 DATE: 2/25/2020
@@ -16,7 +12,7 @@ DESCRIPTION:
 	  column_in[2]	Input	PIN_H5
 	  column_in[1]	Input	PIN_J1
 	  column_in[0]	Input	PIN_J2
-	  ------------------------
+	  -----------------------------
 	  row_out[3]	Output	PIN_K11
 	  row_out[2]	Output	PIN_J13
 	  row_out[1]	Output	PIN_J12
