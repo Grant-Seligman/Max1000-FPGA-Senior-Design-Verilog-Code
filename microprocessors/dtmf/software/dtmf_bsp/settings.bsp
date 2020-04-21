@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Apr 11, 2020 8:55:39 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1586656539410</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\Campo\Max1000-FPGA-Senior-Design-Verilog-Code\microprocessors\dtmf\software\dtmf_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>Apr 21, 2020 1:06:59 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1587449219250</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\Campo\Desktop\dtmf\software\dtmf_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\nios_sys.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
@@ -905,26 +905,32 @@
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pio_dtmf</slaveDescriptor>
+                <slaveDescriptor>pio_dtmf_enable</slaveDescriptor>
                 <addressRange>0x00002000 - 0x0000200F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pio_keypad</slaveDescriptor>
+                <slaveDescriptor>pio_dtmf_select</slaveDescriptor>
                 <addressRange>0x00002010 - 0x0000201F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>pio_keypad</slaveDescriptor>
+                <addressRange>0x00002020 - 0x0000202F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>sysid_qsys</slaveDescriptor>
-                <addressRange>0x00002020 - 0x00002027</addressRange>
+                <addressRange>0x00002030 - 0x00002037</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x00002028 - 0x0000202F</addressRange>
+                <addressRange>0x00002038 - 0x0000203F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>

@@ -4,11 +4,13 @@ module stepdown_1477Hz(outclk, inclk);
 
     reg [8:0] count;
 
+    integer div = 338;
+
     initial begin count = 9'b0; outclk = 0; end
 
     always@(posedge inclk) begin
         count = count + 1;
-        if (count == 339) begin
+        if (count == div) begin
             outclk = ~outclk;
             count = 0;
         end

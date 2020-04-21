@@ -6,7 +6,7 @@
    version="1.0"
    description=""
    tags=""
-   categories="" />
+   categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
    element clk_0
@@ -21,7 +21,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "3";
          type = "int";
       }
    }
@@ -29,7 +29,7 @@
    {
       datum baseAddress
       {
-         value = "8232";
+         value = "8248";
          type = "String";
       }
    }
@@ -65,39 +65,7 @@
          type = "boolean";
       }
    }
-   element pio_dtmf
-   {
-      datum _sortIndex
-      {
-         value = "4";
-         type = "int";
-      }
-   }
-   element pio_dtmf.s1
-   {
-      datum baseAddress
-      {
-         value = "8192";
-         type = "String";
-      }
-   }
-   element pio_keypad
-   {
-      datum _sortIndex
-      {
-         value = "3";
-         type = "int";
-      }
-   }
-   element pio_keypad.s1
-   {
-      datum baseAddress
-      {
-         value = "8208";
-         type = "String";
-      }
-   }
-   element sysid_qsys
+   element pio_dtmf_enable
    {
       datum _sortIndex
       {
@@ -105,11 +73,59 @@
          type = "int";
       }
    }
-   element sysid_qsys.control_slave
+   element pio_dtmf_enable.s1
+   {
+      datum baseAddress
+      {
+         value = "8192";
+         type = "String";
+      }
+   }
+   element pio_dtmf_select
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element pio_dtmf_select.s1
+   {
+      datum baseAddress
+      {
+         value = "8208";
+         type = "String";
+      }
+   }
+   element pio_keypad
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
+   element pio_keypad.s1
    {
       datum baseAddress
       {
          value = "8224";
+         type = "String";
+      }
+   }
+   element sysid_qsys
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+   }
+   element sysid_qsys.control_slave
+   {
+      datum baseAddress
+      {
+         value = "8240";
          type = "String";
       }
    }
@@ -127,7 +143,7 @@
  <parameter name="hideFromIPCatalog" value="false" />
  <parameter name="lockedInterfaceDefinition" value="" />
  <parameter name="maxAdditionalLatency" value="1" />
- <parameter name="projectName" value="" />
+ <parameter name="projectName" value="dtmf.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="0" />
  <parameter name="testBenchDutName" value="" />
@@ -136,8 +152,13 @@
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface
-   name="pio_dtmf"
-   internal="pio_dtmf.external_connection"
+   name="pio_dtmf_enable"
+   internal="pio_dtmf_enable.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="pio_dtmf_select"
+   internal="pio_dtmf_select.external_connection"
    type="conduit"
    dir="end" />
  <interface
@@ -191,7 +212,7 @@
   <parameter name="dataAddrWidth" value="14" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory.s1' start='0x0' end='0x1000' type='altera_avalon_onchip_memory2.s1' /><slave name='nios2.debug_mem_slave' start='0x1800' end='0x2000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='pio_dtmf.s1' start='0x2000' end='0x2010' type='altera_avalon_pio.s1' /><slave name='pio_keypad.s1' start='0x2010' end='0x2020' type='altera_avalon_pio.s1' /><slave name='sysid_qsys.control_slave' start='0x2020' end='0x2028' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x2028' end='0x2030' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory.s1' start='0x0' end='0x1000' type='altera_avalon_onchip_memory2.s1' /><slave name='nios2.debug_mem_slave' start='0x1800' end='0x2000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='pio_dtmf_enable.s1' start='0x2000' end='0x2010' type='altera_avalon_pio.s1' /><slave name='pio_dtmf_select.s1' start='0x2010' end='0x2020' type='altera_avalon_pio.s1' /><slave name='pio_keypad.s1' start='0x2020' end='0x2030' type='altera_avalon_pio.s1' /><slave name='sysid_qsys.control_slave' start='0x2030' end='0x2038' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x2038' end='0x2040' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -381,7 +402,29 @@
   <parameter name="useShallowMemBlocks" value="false" />
   <parameter name="writable" value="true" />
  </module>
- <module name="pio_dtmf" kind="altera_avalon_pio" version="18.1" enabled="1">
+ <module
+   name="pio_dtmf_enable"
+   kind="altera_avalon_pio"
+   version="18.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+ </module>
+ <module
+   name="pio_dtmf_select"
+   kind="altera_avalon_pio"
+   version="18.1"
+   enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -422,7 +465,7 @@
    start="nios2.data_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2028" />
+  <parameter name="baseAddress" value="0x2038" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -431,7 +474,7 @@
    start="nios2.data_master"
    end="sysid_qsys.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2020" />
+  <parameter name="baseAddress" value="0x2030" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -458,6 +501,15 @@
    start="nios2.data_master"
    end="pio_keypad.s1">
   <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2020" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="nios2.data_master"
+   end="pio_dtmf_select.s1">
+  <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x2010" />
   <parameter name="defaultConnection" value="false" />
  </connection>
@@ -465,7 +517,7 @@
    kind="avalon"
    version="18.1"
    start="nios2.data_master"
-   end="pio_dtmf.s1">
+   end="pio_dtmf_enable.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x2000" />
   <parameter name="defaultConnection" value="false" />
@@ -488,10 +540,19 @@
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection kind="clock" version="18.1" start="clk_0.clk" end="nios2.clk" />
- <connection kind="clock" version="18.1" start="clk_0.clk" end="pio_keypad.clk" />
- <connection kind="clock" version="18.1" start="clk_0.clk" end="pio_dtmf.clk" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="jtag_uart.clk" />
+ <connection kind="clock" version="18.1" start="clk_0.clk" end="pio_keypad.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="clk_0.clk"
+   end="pio_dtmf_select.clk" />
+ <connection kind="clock" version="18.1" start="clk_0.clk" end="nios2.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="clk_0.clk"
+   end="pio_dtmf_enable.clk" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="sysid_qsys.clk" />
  <connection
    kind="clock"
@@ -501,7 +562,11 @@
  <connection kind="interrupt" version="18.1" start="nios2.irq" end="jtag_uart.irq">
   <parameter name="irqNumber" value="8" />
  </connection>
- <connection kind="reset" version="18.1" start="clk_0.clk_reset" end="nios2.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_0.clk_reset"
+   end="jtag_uart.reset" />
  <connection
    kind="reset"
    version="18.1"
@@ -511,12 +576,13 @@
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
-   end="pio_dtmf.reset" />
+   end="pio_dtmf_select.reset" />
+ <connection kind="reset" version="18.1" start="clk_0.clk_reset" end="nios2.reset" />
  <connection
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
-   end="jtag_uart.reset" />
+   end="pio_dtmf_enable.reset" />
  <connection
    kind="reset"
    version="18.1"
@@ -531,7 +597,7 @@
    kind="reset"
    version="18.1"
    start="nios2.debug_reset_request"
-   end="nios2.reset" />
+   end="jtag_uart.reset" />
  <connection
    kind="reset"
    version="18.1"
@@ -541,12 +607,17 @@
    kind="reset"
    version="18.1"
    start="nios2.debug_reset_request"
-   end="pio_dtmf.reset" />
+   end="pio_dtmf_select.reset" />
  <connection
    kind="reset"
    version="18.1"
    start="nios2.debug_reset_request"
-   end="jtag_uart.reset" />
+   end="nios2.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="nios2.debug_reset_request"
+   end="pio_dtmf_enable.reset" />
  <connection
    kind="reset"
    version="18.1"

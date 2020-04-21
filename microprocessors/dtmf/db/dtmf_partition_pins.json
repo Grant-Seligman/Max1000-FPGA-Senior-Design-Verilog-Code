@@ -4,51 +4,71 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "row_buzzer",
+					"name" : "leds_dtmf_en_debug",
 					"strict" : false
 				},
 				{
-					"name" : "column_buzzer",
+					"name" : "row_speaker",
 					"strict" : false
 				},
 				{
-					"name" : "rows[3]",
+					"name" : "column_speaker",
 					"strict" : false
 				},
 				{
-					"name" : "rows[2]",
+					"name" : "leds_key_debug[3]",
 					"strict" : false
 				},
 				{
-					"name" : "rows[1]",
+					"name" : "leds_key_debug[2]",
 					"strict" : false
 				},
 				{
-					"name" : "rows[0]",
+					"name" : "leds_key_debug[1]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "leds_key_debug[0]",
 					"strict" : false
 				},
 				{
-					"name" : "columns[3]",
+					"name" : "row_out[3]",
 					"strict" : false
 				},
 				{
-					"name" : "columns[2]",
+					"name" : "row_out[2]",
 					"strict" : false
 				},
 				{
-					"name" : "columns[1]",
+					"name" : "row_out[1]",
 					"strict" : false
 				},
 				{
-					"name" : "columns[0]",
+					"name" : "row_out[0]",
 					"strict" : false
 				},
 				{
-					"name" : "rst",
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "column_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "column_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "column_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "column_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
 					"strict" : false
 				},
 				{

@@ -18,7 +18,7 @@
 #
 # Quartus Prime
 # Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-# Date created = 01:13:24  April 11, 2020
+# Date created = 15:12:50  April 16, 2020
 #
 # -------------------------------------------------------------------------- #
 #
@@ -40,19 +40,21 @@ set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M08SAU169C8G
 set_global_assignment -name TOP_LEVEL_ENTITY dtmf
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "01:13:24  APRIL 11, 2020"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:12:50  APRIL 16, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
 set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VCCA_USER_VOLTAGE 3.3V
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 3.3V
 set_global_assignment -name ENABLE_OCT_DONE OFF
 set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
 set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
@@ -64,24 +66,16 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
-set_global_assignment -name VCCA_USER_VOLTAGE 3.3V
-set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 3.3V
 set_location_assignment PIN_G2 -to altera_reserved_tck
 set_location_assignment PIN_F5 -to altera_reserved_tdi
 set_location_assignment PIN_F6 -to altera_reserved_tdo
 set_location_assignment PIN_G1 -to altera_reserved_tms
-set_location_assignment PIN_H6 -to clk
-set_location_assignment PIN_E6 -to rst
-set_location_assignment PIN_J2 -to rows[0]
-set_location_assignment PIN_J1 -to rows[1]
-set_location_assignment PIN_H5 -to rows[2]
-set_location_assignment PIN_K10 -to rows[3]
-set_location_assignment PIN_L12 -to columns[0]
-set_location_assignment PIN_J12 -to columns[1]
-set_location_assignment PIN_J13 -to columns[2]
-set_location_assignment PIN_K11 -to columns[3]
-set_location_assignment PIN_K12 -to row_buzzer
-set_location_assignment PIN_J10 -to column_buzzer
+set_location_assignment PIN_K12 -to row_speaker
+set_location_assignment PIN_J10 -to column_speaker
+set_global_assignment -name VERILOG_FILE stepdown_60Hz.v
+set_global_assignment -name VERILOG_FILE keypad_decoder.v
+set_global_assignment -name QIP_FILE nios_sys/synthesis/nios_sys.qip
+set_global_assignment -name VERILOG_FILE stepdown_clk.v
 set_global_assignment -name VERILOG_FILE stepdown_1633Hz.v
 set_global_assignment -name VERILOG_FILE stepdown_1477Hz.v
 set_global_assignment -name VERILOG_FILE stepdown_1336Hz.v
@@ -90,10 +84,22 @@ set_global_assignment -name VERILOG_FILE stepdown_941Hz.v
 set_global_assignment -name VERILOG_FILE stepdown_852Hz.v
 set_global_assignment -name VERILOG_FILE stepdown_770Hz.v
 set_global_assignment -name VERILOG_FILE stepdown_697Hz.v
-set_global_assignment -name VERILOG_FILE stepdown_clk.v
-set_global_assignment -name VERILOG_FILE keypad_decoder.v
-set_global_assignment -name QIP_FILE nios_sys/synthesis/nios_sys.qip
 set_global_assignment -name VERILOG_FILE select.v
+set_global_assignment -name QIP_FILE stepdown_1M.qip
 set_global_assignment -name BDF_FILE dtmf.bdf
-set_global_assignment -name QIP_FILE clk_1M.qip
+set_location_assignment PIN_H6 -to clock
+set_location_assignment PIN_K10 -to column_in[3]
+set_location_assignment PIN_J2 -to column_in[0]
+set_location_assignment PIN_J1 -to column_in[1]
+set_location_assignment PIN_H5 -to column_in[2]
+set_location_assignment PIN_D8 -to leds_dtmf_en_debug
+set_location_assignment PIN_A8 -to leds_key_debug[3]
+set_location_assignment PIN_A9 -to leds_key_debug[2]
+set_location_assignment PIN_A11 -to leds_key_debug[1]
+set_location_assignment PIN_A10 -to leds_key_debug[0]
+set_location_assignment PIN_E6 -to reset
+set_location_assignment PIN_L12 -to row_out[0]
+set_location_assignment PIN_J12 -to row_out[1]
+set_location_assignment PIN_J13 -to row_out[2]
+set_location_assignment PIN_K11 -to row_out[3]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

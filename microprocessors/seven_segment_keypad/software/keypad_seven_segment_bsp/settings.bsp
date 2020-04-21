@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Apr 3, 2020 11:05:18 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1585973118354</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Apr 21, 2020 1:43:42 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1587451422099</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\Campo\Max1000-FPGA-Senior-Design-Verilog-Code\microprocessors\seven_segment_keypad\software\keypad_seven_segment_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\nios_sys.sopcinfo</SopcDesignFile>

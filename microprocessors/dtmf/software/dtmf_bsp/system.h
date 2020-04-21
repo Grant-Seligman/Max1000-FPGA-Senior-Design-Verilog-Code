@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2' in SOPC Builder design 'nios_sys'
  * SOPC Builder design path: ../../nios_sys.sopcinfo
  *
- * Generated: Sat Apr 11 19:27:45 CDT 2020
+ * Generated: Fri Apr 17 13:44:35 CDT 2020
  */
 
 /*
@@ -164,19 +164,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x2028
+#define ALT_STDERR_BASE 0x2038
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart"
-#define ALT_STDIN_BASE 0x2028
+#define ALT_STDIN_BASE 0x2038
 #define ALT_STDIN_DEV jtag_uart
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart"
-#define ALT_STDOUT_BASE 0x2028
+#define ALT_STDOUT_BASE 0x2038
 #define ALT_STDOUT_DEV jtag_uart
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -201,7 +201,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x2028
+#define JTAG_UART_BASE 0x2038
 #define JTAG_UART_IRQ 8
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -243,30 +243,57 @@
 
 
 /*
- * pio_dtmf configuration
+ * pio_dtmf_enable configuration
  *
  */
 
-#define ALT_MODULE_CLASS_pio_dtmf altera_avalon_pio
-#define PIO_DTMF_BASE 0x2000
-#define PIO_DTMF_BIT_CLEARING_EDGE_REGISTER 0
-#define PIO_DTMF_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define PIO_DTMF_CAPTURE 0
-#define PIO_DTMF_DATA_WIDTH 4
-#define PIO_DTMF_DO_TEST_BENCH_WIRING 0
-#define PIO_DTMF_DRIVEN_SIM_VALUE 0
-#define PIO_DTMF_EDGE_TYPE "NONE"
-#define PIO_DTMF_FREQ 50000000
-#define PIO_DTMF_HAS_IN 0
-#define PIO_DTMF_HAS_OUT 1
-#define PIO_DTMF_HAS_TRI 0
-#define PIO_DTMF_IRQ -1
-#define PIO_DTMF_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define PIO_DTMF_IRQ_TYPE "NONE"
-#define PIO_DTMF_NAME "/dev/pio_dtmf"
-#define PIO_DTMF_RESET_VALUE 0
-#define PIO_DTMF_SPAN 16
-#define PIO_DTMF_TYPE "altera_avalon_pio"
+#define ALT_MODULE_CLASS_pio_dtmf_enable altera_avalon_pio
+#define PIO_DTMF_ENABLE_BASE 0x2000
+#define PIO_DTMF_ENABLE_BIT_CLEARING_EDGE_REGISTER 0
+#define PIO_DTMF_ENABLE_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define PIO_DTMF_ENABLE_CAPTURE 0
+#define PIO_DTMF_ENABLE_DATA_WIDTH 1
+#define PIO_DTMF_ENABLE_DO_TEST_BENCH_WIRING 0
+#define PIO_DTMF_ENABLE_DRIVEN_SIM_VALUE 0
+#define PIO_DTMF_ENABLE_EDGE_TYPE "NONE"
+#define PIO_DTMF_ENABLE_FREQ 50000000
+#define PIO_DTMF_ENABLE_HAS_IN 0
+#define PIO_DTMF_ENABLE_HAS_OUT 1
+#define PIO_DTMF_ENABLE_HAS_TRI 0
+#define PIO_DTMF_ENABLE_IRQ -1
+#define PIO_DTMF_ENABLE_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PIO_DTMF_ENABLE_IRQ_TYPE "NONE"
+#define PIO_DTMF_ENABLE_NAME "/dev/pio_dtmf_enable"
+#define PIO_DTMF_ENABLE_RESET_VALUE 0
+#define PIO_DTMF_ENABLE_SPAN 16
+#define PIO_DTMF_ENABLE_TYPE "altera_avalon_pio"
+
+
+/*
+ * pio_dtmf_select configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pio_dtmf_select altera_avalon_pio
+#define PIO_DTMF_SELECT_BASE 0x2010
+#define PIO_DTMF_SELECT_BIT_CLEARING_EDGE_REGISTER 0
+#define PIO_DTMF_SELECT_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define PIO_DTMF_SELECT_CAPTURE 0
+#define PIO_DTMF_SELECT_DATA_WIDTH 4
+#define PIO_DTMF_SELECT_DO_TEST_BENCH_WIRING 0
+#define PIO_DTMF_SELECT_DRIVEN_SIM_VALUE 0
+#define PIO_DTMF_SELECT_EDGE_TYPE "NONE"
+#define PIO_DTMF_SELECT_FREQ 50000000
+#define PIO_DTMF_SELECT_HAS_IN 0
+#define PIO_DTMF_SELECT_HAS_OUT 1
+#define PIO_DTMF_SELECT_HAS_TRI 0
+#define PIO_DTMF_SELECT_IRQ -1
+#define PIO_DTMF_SELECT_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PIO_DTMF_SELECT_IRQ_TYPE "NONE"
+#define PIO_DTMF_SELECT_NAME "/dev/pio_dtmf_select"
+#define PIO_DTMF_SELECT_RESET_VALUE 0
+#define PIO_DTMF_SELECT_SPAN 16
+#define PIO_DTMF_SELECT_TYPE "altera_avalon_pio"
 
 
 /*
@@ -275,7 +302,7 @@
  */
 
 #define ALT_MODULE_CLASS_pio_keypad altera_avalon_pio
-#define PIO_KEYPAD_BASE 0x2010
+#define PIO_KEYPAD_BASE 0x2020
 #define PIO_KEYPAD_BIT_CLEARING_EDGE_REGISTER 0
 #define PIO_KEYPAD_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PIO_KEYPAD_CAPTURE 0
@@ -302,13 +329,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys altera_avalon_sysid_qsys
-#define SYSID_QSYS_BASE 0x2020
+#define SYSID_QSYS_BASE 0x2030
 #define SYSID_QSYS_ID 4112
 #define SYSID_QSYS_IRQ -1
 #define SYSID_QSYS_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_NAME "/dev/sysid_qsys"
 #define SYSID_QSYS_SPAN 8
-#define SYSID_QSYS_TIMESTAMP 1586592123
+#define SYSID_QSYS_TIMESTAMP 1587100163
 #define SYSID_QSYS_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

@@ -8,6 +8,6 @@
   </columns>
  </systemtable>
  <library
-   expandedCategories="Library/Basic Functions,Project,Library/Basic Functions/Simulation; Debug and Verification,Library,Library/Basic Functions/Simulation; Debug and Verification/Debug and Performance" />
- <window width="1936" height="1056" x="-8" y="-8" />
+   expandedCategories="Library/Processors and Peripherals/Embedded Processors,Library/University Program/Clock,Library/Basic Functions,Library/Processors and Peripherals,Library/Processors and Peripherals/Hard Processor Systems,Project,Library/Basic Functions/Simulation; Debug and Verification/Debug and Performance,Library,Library/University Program,Library/Basic Functions/Simulation; Debug and Verification" />
+ <window width="1920" height="1040" x="0" y="0" />
 </preferences>

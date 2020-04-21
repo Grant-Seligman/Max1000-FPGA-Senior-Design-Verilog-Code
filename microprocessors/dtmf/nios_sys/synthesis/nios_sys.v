@@ -4,10 +4,11 @@
 
 `timescale 1 ps / 1 ps
 module nios_sys (
-		input  wire       clk_clk,           //        clk.clk
-		output wire [3:0] pio_dtmf_export,   //   pio_dtmf.export
-		input  wire [3:0] pio_keypad_export, // pio_keypad.export
-		input  wire       reset_reset_n      //      reset.reset_n
+		input  wire       clk_clk,                //             clk.clk
+		output wire       pio_dtmf_enable_export, // pio_dtmf_enable.export
+		output wire [3:0] pio_dtmf_select_export, // pio_dtmf_select.export
+		input  wire [3:0] pio_keypad_export,      //      pio_keypad.export
+		input  wire       reset_reset_n           //           reset.reset_n
 	);
 
 	wire  [31:0] nios2_data_master_readdata;                                // mm_interconnect_0:nios2_data_master_readdata -> nios2:d_readdata
@@ -50,14 +51,19 @@ module nios_sys (
 	wire         mm_interconnect_0_onchip_memory_s1_clken;                  // mm_interconnect_0:onchip_memory_s1_clken -> onchip_memory:clken
 	wire  [31:0] mm_interconnect_0_pio_keypad_s1_readdata;                  // pio_keypad:readdata -> mm_interconnect_0:pio_keypad_s1_readdata
 	wire   [1:0] mm_interconnect_0_pio_keypad_s1_address;                   // mm_interconnect_0:pio_keypad_s1_address -> pio_keypad:address
-	wire         mm_interconnect_0_pio_dtmf_s1_chipselect;                  // mm_interconnect_0:pio_dtmf_s1_chipselect -> pio_dtmf:chipselect
-	wire  [31:0] mm_interconnect_0_pio_dtmf_s1_readdata;                    // pio_dtmf:readdata -> mm_interconnect_0:pio_dtmf_s1_readdata
-	wire   [1:0] mm_interconnect_0_pio_dtmf_s1_address;                     // mm_interconnect_0:pio_dtmf_s1_address -> pio_dtmf:address
-	wire         mm_interconnect_0_pio_dtmf_s1_write;                       // mm_interconnect_0:pio_dtmf_s1_write -> pio_dtmf:write_n
-	wire  [31:0] mm_interconnect_0_pio_dtmf_s1_writedata;                   // mm_interconnect_0:pio_dtmf_s1_writedata -> pio_dtmf:writedata
+	wire         mm_interconnect_0_pio_dtmf_select_s1_chipselect;           // mm_interconnect_0:pio_dtmf_select_s1_chipselect -> pio_dtmf_select:chipselect
+	wire  [31:0] mm_interconnect_0_pio_dtmf_select_s1_readdata;             // pio_dtmf_select:readdata -> mm_interconnect_0:pio_dtmf_select_s1_readdata
+	wire   [1:0] mm_interconnect_0_pio_dtmf_select_s1_address;              // mm_interconnect_0:pio_dtmf_select_s1_address -> pio_dtmf_select:address
+	wire         mm_interconnect_0_pio_dtmf_select_s1_write;                // mm_interconnect_0:pio_dtmf_select_s1_write -> pio_dtmf_select:write_n
+	wire  [31:0] mm_interconnect_0_pio_dtmf_select_s1_writedata;            // mm_interconnect_0:pio_dtmf_select_s1_writedata -> pio_dtmf_select:writedata
+	wire         mm_interconnect_0_pio_dtmf_enable_s1_chipselect;           // mm_interconnect_0:pio_dtmf_enable_s1_chipselect -> pio_dtmf_enable:chipselect
+	wire  [31:0] mm_interconnect_0_pio_dtmf_enable_s1_readdata;             // pio_dtmf_enable:readdata -> mm_interconnect_0:pio_dtmf_enable_s1_readdata
+	wire   [1:0] mm_interconnect_0_pio_dtmf_enable_s1_address;              // mm_interconnect_0:pio_dtmf_enable_s1_address -> pio_dtmf_enable:address
+	wire         mm_interconnect_0_pio_dtmf_enable_s1_write;                // mm_interconnect_0:pio_dtmf_enable_s1_write -> pio_dtmf_enable:write_n
+	wire  [31:0] mm_interconnect_0_pio_dtmf_enable_s1_writedata;            // mm_interconnect_0:pio_dtmf_enable_s1_writedata -> pio_dtmf_enable:writedata
 	wire         irq_mapper_receiver0_irq;                                  // jtag_uart:av_irq -> irq_mapper:receiver0_irq
 	wire  [31:0] nios2_irq_irq;                                             // irq_mapper:sender_irq -> nios2:irq
-	wire         rst_controller_reset_out_reset;                            // rst_controller:reset_out -> [irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:nios2_reset_reset_bridge_in_reset_reset, nios2:reset_n, onchip_memory:reset, pio_dtmf:reset_n, pio_keypad:reset_n, rst_translator:in_reset, sysid_qsys:reset_n]
+	wire         rst_controller_reset_out_reset;                            // rst_controller:reset_out -> [irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:nios2_reset_reset_bridge_in_reset_reset, nios2:reset_n, onchip_memory:reset, pio_dtmf_enable:reset_n, pio_dtmf_select:reset_n, pio_keypad:reset_n, rst_translator:in_reset, sysid_qsys:reset_n]
 	wire         rst_controller_reset_out_reset_req;                        // rst_controller:reset_req -> [nios2:reset_req, onchip_memory:reset_req, rst_translator:reset_req_in]
 	wire         nios2_debug_reset_request_reset;                           // nios2:debug_reset_request -> rst_controller:reset_in1
 
@@ -119,15 +125,26 @@ module nios_sys (
 		.freeze     (1'b0)                                           // (terminated)
 	);
 
-	nios_sys_pio_dtmf pio_dtmf (
-		.clk        (clk_clk),                                  //                 clk.clk
-		.reset_n    (~rst_controller_reset_out_reset),          //               reset.reset_n
-		.address    (mm_interconnect_0_pio_dtmf_s1_address),    //                  s1.address
-		.write_n    (~mm_interconnect_0_pio_dtmf_s1_write),     //                    .write_n
-		.writedata  (mm_interconnect_0_pio_dtmf_s1_writedata),  //                    .writedata
-		.chipselect (mm_interconnect_0_pio_dtmf_s1_chipselect), //                    .chipselect
-		.readdata   (mm_interconnect_0_pio_dtmf_s1_readdata),   //                    .readdata
-		.out_port   (pio_dtmf_export)                           // external_connection.export
+	nios_sys_pio_dtmf_enable pio_dtmf_enable (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_pio_dtmf_enable_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_pio_dtmf_enable_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_pio_dtmf_enable_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_pio_dtmf_enable_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_pio_dtmf_enable_s1_readdata),   //                    .readdata
+		.out_port   (pio_dtmf_enable_export)                           // external_connection.export
+	);
+
+	nios_sys_pio_dtmf_select pio_dtmf_select (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_pio_dtmf_select_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_pio_dtmf_select_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_pio_dtmf_select_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_pio_dtmf_select_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_pio_dtmf_select_s1_readdata),   //                    .readdata
+		.out_port   (pio_dtmf_select_export)                           // external_connection.export
 	);
 
 	nios_sys_pio_keypad pio_keypad (
@@ -184,11 +201,16 @@ module nios_sys (
 		.onchip_memory_s1_byteenable             (mm_interconnect_0_onchip_memory_s1_byteenable),             //                                  .byteenable
 		.onchip_memory_s1_chipselect             (mm_interconnect_0_onchip_memory_s1_chipselect),             //                                  .chipselect
 		.onchip_memory_s1_clken                  (mm_interconnect_0_onchip_memory_s1_clken),                  //                                  .clken
-		.pio_dtmf_s1_address                     (mm_interconnect_0_pio_dtmf_s1_address),                     //                       pio_dtmf_s1.address
-		.pio_dtmf_s1_write                       (mm_interconnect_0_pio_dtmf_s1_write),                       //                                  .write
-		.pio_dtmf_s1_readdata                    (mm_interconnect_0_pio_dtmf_s1_readdata),                    //                                  .readdata
-		.pio_dtmf_s1_writedata                   (mm_interconnect_0_pio_dtmf_s1_writedata),                   //                                  .writedata
-		.pio_dtmf_s1_chipselect                  (mm_interconnect_0_pio_dtmf_s1_chipselect),                  //                                  .chipselect
+		.pio_dtmf_enable_s1_address              (mm_interconnect_0_pio_dtmf_enable_s1_address),              //                pio_dtmf_enable_s1.address
+		.pio_dtmf_enable_s1_write                (mm_interconnect_0_pio_dtmf_enable_s1_write),                //                                  .write
+		.pio_dtmf_enable_s1_readdata             (mm_interconnect_0_pio_dtmf_enable_s1_readdata),             //                                  .readdata
+		.pio_dtmf_enable_s1_writedata            (mm_interconnect_0_pio_dtmf_enable_s1_writedata),            //                                  .writedata
+		.pio_dtmf_enable_s1_chipselect           (mm_interconnect_0_pio_dtmf_enable_s1_chipselect),           //                                  .chipselect
+		.pio_dtmf_select_s1_address              (mm_interconnect_0_pio_dtmf_select_s1_address),              //                pio_dtmf_select_s1.address
+		.pio_dtmf_select_s1_write                (mm_interconnect_0_pio_dtmf_select_s1_write),                //                                  .write
+		.pio_dtmf_select_s1_readdata             (mm_interconnect_0_pio_dtmf_select_s1_readdata),             //                                  .readdata
+		.pio_dtmf_select_s1_writedata            (mm_interconnect_0_pio_dtmf_select_s1_writedata),            //                                  .writedata
+		.pio_dtmf_select_s1_chipselect           (mm_interconnect_0_pio_dtmf_select_s1_chipselect),           //                                  .chipselect
 		.pio_keypad_s1_address                   (mm_interconnect_0_pio_keypad_s1_address),                   //                     pio_keypad_s1.address
 		.pio_keypad_s1_readdata                  (mm_interconnect_0_pio_keypad_s1_readdata),                  //                                  .readdata
 		.sysid_qsys_control_slave_address        (mm_interconnect_0_sysid_qsys_control_slave_address),        //          sysid_qsys_control_slave.address

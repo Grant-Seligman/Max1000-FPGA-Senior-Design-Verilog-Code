@@ -52,11 +52,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "colmn[3]",
-					"strict" : false
-				},
-				{
-					"name" : "colmn[2]",
+					"name" : "colmn[0]",
 					"strict" : false
 				},
 				{
@@ -64,7 +60,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "colmn[0]",
+					"name" : "colmn[2]",
+					"strict" : false
+				},
+				{
+					"name" : "colmn[3]",
 					"strict" : false
 				},
 				{
