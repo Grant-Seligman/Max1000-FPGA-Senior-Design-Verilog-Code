@@ -1,0 +1,93 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "leds_dtmf_en_debug",
+					"strict" : false
+				},
+				{
+					"name" : "row_speaker",
+					"strict" : false
+				},
+				{
+					"name" : "column_speaker",
+					"strict" : false
+				},
+				{
+					"name" : "leds_key_debug[3]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_key_debug[2]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_key_debug[1]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_key_debug[0]",
+					"strict" : false
+				},
+				{
+					"name" : "row_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "row_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "row_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "row_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "column_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "column_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "column_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "column_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
