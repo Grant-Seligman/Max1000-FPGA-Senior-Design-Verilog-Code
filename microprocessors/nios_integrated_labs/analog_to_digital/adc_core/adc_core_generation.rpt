@@ -1,0 +1,109 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\Campo\Max1000-FPGA-Senior-Design-Verilog-Code\microprocessors\nios_integrated_labs\analog_to_digital\adc_core.qsys --block-symbol-file --output-directory=C:\Users\Campo\Max1000-FPGA-Senior-Design-Verilog-Code\microprocessors\nios_integrated_labs\analog_to_digital\adc_core --family="MAX 10" --part=10M08SAU169C8G
+Progress: Loading analog_to_digital/adc_core.qsys
+Progress: Reading input file
+Progress: Adding adc [altera_modular_adc 18.1]
+Progress: Parameterizing module adc
+Progress: Adding avalon_bridge [altera_jtag_avalon_master 18.1]
+Progress: Parameterizing module avalon_bridge
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding pll [altpll 18.1]
+Progress: Parameterizing module pll
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: adc_core.adc.control_internal.response/st_splitter_internal.in: The sink has a empty signal of 1 bits, but the source does not. Avalon-ST Adapter will be inserted.
+Info: adc_core.adc.st_splitter_internal.out0/sample_store_internal.response: The source has a empty signal of 1 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Info: adc_core.adc.st_splitter_internal.out1/adc_monitor_internal.adc_data: The source has a empty signal of 1 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Warning: adc_core.pll: pll.areset_conduit must be exported, or connected to a matching conduit.
+Warning: adc_core.adc: Interrupt sender adc.sample_store_irq is not connected to an interrupt receiver
+Warning: adc_core.pll: pll.pll_slave must be connected to an Avalon-MM master
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\Campo\Max1000-FPGA-Senior-Design-Verilog-Code\microprocessors\nios_integrated_labs\analog_to_digital\adc_core.qsys --synthesis=VERILOG --output-directory=C:\Users\Campo\Max1000-FPGA-Senior-Design-Verilog-Code\microprocessors\nios_integrated_labs\analog_to_digital\adc_core\synthesis --family="MAX 10" --part=10M08SAU169C8G
+Progress: Loading analog_to_digital/adc_core.qsys
+Progress: Reading input file
+Progress: Adding adc [altera_modular_adc 18.1]
+Progress: Parameterizing module adc
+Progress: Adding avalon_bridge [altera_jtag_avalon_master 18.1]
+Progress: Parameterizing module avalon_bridge
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding pll [altpll 18.1]
+Progress: Parameterizing module pll
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: adc_core.adc.control_internal.response/st_splitter_internal.in: The sink has a empty signal of 1 bits, but the source does not. Avalon-ST Adapter will be inserted.
+Info: adc_core.adc.st_splitter_internal.out0/sample_store_internal.response: The source has a empty signal of 1 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Info: adc_core.adc.st_splitter_internal.out1/adc_monitor_internal.adc_data: The source has a empty signal of 1 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Warning: adc_core.pll: pll.areset_conduit must be exported, or connected to a matching conduit.
+Warning: adc_core.adc: Interrupt sender adc.sample_store_irq is not connected to an interrupt receiver
+Warning: adc_core.pll: pll.pll_slave must be connected to an Avalon-MM master
+Info: adc_core: Generating adc_core "adc_core" for QUARTUS_SYNTH
+Info: avalon_st_adapter: Inserting data_format_adapter: data_format_adapter_0
+Info: avalon_st_adapter: Inserting timing_adapter: timing_adapter_0
+Info: avalon_st_adapter: Inserting timing_adapter: timing_adapter_1
+Info: avalon_st_adapter_001: Inserting data_format_adapter: data_format_adapter_0
+Info: avalon_st_adapter_001: Inserting timing_adapter: timing_adapter_0
+Info: avalon_st_adapter_001: Inserting timing_adapter: timing_adapter_1
+Info: avalon_st_adapter_002: Inserting data_format_adapter: data_format_adapter_0
+Info: avalon_st_adapter_002: Inserting timing_adapter: timing_adapter_0
+Info: avalon_st_adapter_002: Inserting timing_adapter: timing_adapter_1
+Info: adc: "adc_core" instantiated altera_modular_adc "adc"
+Info: avalon_bridge: "adc_core" instantiated altera_jtag_avalon_master "avalon_bridge"
+Info: pll: "adc_core" instantiated altpll "pll"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "adc_core" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: rst_controller: "adc_core" instantiated altera_reset_controller "rst_controller"
+Info: control_internal: "adc" instantiated altera_modular_adc_control "control_internal"
+Info: adc_monitor_internal: "adc" instantiated altera_trace_adc_monitor "adc_monitor_internal"
+Info: sequencer_internal: "adc" instantiated altera_modular_adc_sequencer "sequencer_internal"
+Info: sample_store_internal: "adc" instantiated altera_modular_adc_sample_store "sample_store_internal"
+Info: st_splitter_internal: "adc" instantiated altera_avalon_st_splitter "st_splitter_internal"
+Info: avalon_st_adapter: "adc" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_001: "adc" instantiated altera_avalon_st_adapter "avalon_st_adapter_001"
+Info: jtag_phy_embedded_in_jtag_master: "avalon_bridge" instantiated altera_jtag_dc_streaming "jtag_phy_embedded_in_jtag_master"
+Info: timing_adt: "avalon_bridge" instantiated timing_adapter "timing_adt"
+Info: fifo: "avalon_bridge" instantiated altera_avalon_sc_fifo "fifo"
+Info: b2p: "avalon_bridge" instantiated altera_avalon_st_bytes_to_packets "b2p"
+Info: p2b: "avalon_bridge" instantiated altera_avalon_st_packets_to_bytes "p2b"
+Info: transacto: "avalon_bridge" instantiated altera_avalon_packets_to_master "transacto"
+Info: b2p_adapter: "avalon_bridge" instantiated channel_adapter "b2p_adapter"
+Info: p2b_adapter: "avalon_bridge" instantiated channel_adapter "p2b_adapter"
+Info: avalon_bridge_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "avalon_bridge_master_translator"
+Info: adc_sample_store_csr_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "adc_sample_store_csr_translator"
+Info: avalon_bridge_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "avalon_bridge_master_agent"
+Info: adc_sample_store_csr_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "adc_sample_store_csr_agent"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: avalon_bridge_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "avalon_bridge_master_limiter"
+Info: Reusing file C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/nios_integrated_labs/analog_to_digital/adc_core/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: Reusing file C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/nios_integrated_labs/analog_to_digital/adc_core/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/Campo/Max1000-FPGA-Senior-Design-Verilog-Code/microprocessors/nios_integrated_labs/analog_to_digital/adc_core/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: altera_trace_adc_monitor_wa_inst: "Generating: altera_trace_adc_monitor_wa_inst"
+Info: core: "adc_monitor_internal" instantiated altera_trace_adc_monitor_core "core"
+Info: trace_endpoint: "adc_monitor_internal" instantiated altera_trace_monitor_endpoint "trace_endpoint"
+Info: data_format_adapter_0: "avalon_st_adapter" instantiated data_format_adapter "data_format_adapter_0"
+Info: timing_adapter_0: "avalon_st_adapter" instantiated timing_adapter "timing_adapter_0"
+Info: timing_adapter_1: "avalon_st_adapter" instantiated timing_adapter "timing_adapter_1"
+Info: data_format_adapter_0: "avalon_st_adapter_001" instantiated data_format_adapter "data_format_adapter_0"
+Info: timing_adapter_0: "avalon_st_adapter_001" instantiated timing_adapter "timing_adapter_0"
+Info: timing_adapter_1: "avalon_st_adapter_001" instantiated timing_adapter "timing_adapter_1"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: altera_trace_adc_monitor_wa_inst: "core" instantiated altera_trace_adc_monitor_core "altera_trace_adc_monitor_wa_inst"
+Info: altera_trace_adc_monitor_wa_inst: "altera_trace_adc_monitor_wa_inst" instantiated altera_trace_adc_monitor_wa "altera_trace_adc_monitor_wa_inst"
+Info: adc_core: Done "adc_core" with 44 modules, 68 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

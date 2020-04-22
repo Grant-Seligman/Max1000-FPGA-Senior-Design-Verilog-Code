@@ -1,0 +1,506 @@
+Archive member included to satisfy reference by file (symbol)
+
+../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+                              obj/default/main.o (alt_getchar)
+../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+                              ../motor_controller_bsp//obj/HAL/src/crt0.o (alt_load)
+../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+                              ../motor_controller_bsp//obj/HAL/src/crt0.o (alt_main)
+../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+                              obj/default/main.o (alt_putchar)
+../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+                              ../motor_controller_bsp/\libhal_bsp.a(alt_main.o) (alt_irq_init)
+../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                              ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o) (altera_avalon_jtag_uart_read)
+../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                              ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o) (altera_avalon_jtag_uart_write)
+../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                              ../motor_controller_bsp/\libhal_bsp.a(alt_load.o) (alt_dcache_flush_all)
+../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+                              ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o) (alt_fd_list)
+../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                              ../motor_controller_bsp/\libhal_bsp.a(alt_load.o) (alt_icache_flush_all)
+../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                              ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o) (altera_nios2_gen2_irq_init)
+../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+                              ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o) (alt_icache_flush)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+reset            0x0000000000000000 0x0000000000000020
+onchip_memory    0x0000000000000020 0x0000000000000fe0
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD ../motor_controller_bsp//obj/HAL/src/crt0.o
+LOAD obj/default/main.o
+LOAD y:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libstdc++.a
+LOAD y:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libm.a
+LOAD y:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0\libgcc.a
+START GROUP
+LOAD y:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libsmallc.a
+LOAD y:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0\libgcc.a
+LOAD ../motor_controller_bsp/\libhal_bsp.a
+LOAD y:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libm.a
+END GROUP
+LOAD y:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0\libgcc.a
+                0x0000000000000000                __alt_mem_onchip_memory = 0x0
+
+.entry          0x0000000000000000       0x20
+ *(.entry)
+ .entry         0x0000000000000000       0x20 ../motor_controller_bsp//obj/HAL/src/crt0.o
+                0x0000000000000000                __reset
+                0x000000000000001c                _exit
+
+.exceptions     0x0000000000000020        0x0
+                0x0000000000000020                PROVIDE (__ram_exceptions_start, ABSOLUTE (.))
+                0x0000000000000020                . = ALIGN (0x20)
+ *(.irq)
+ *(.exceptions.entry.label)
+ *(.exceptions.entry.user)
+ *(.exceptions.entry.ecc_fatal)
+ *(.exceptions.entry)
+ *(.exceptions.irqtest.user)
+ *(.exceptions.irqtest)
+ *(.exceptions.irqhandler.user)
+ *(.exceptions.irqhandler)
+ *(.exceptions.irqreturn.user)
+ *(.exceptions.irqreturn)
+ *(.exceptions.notirq.label)
+ *(.exceptions.notirq.user)
+ *(.exceptions.notirq)
+ *(.exceptions.soft.user)
+ *(.exceptions.soft)
+ *(.exceptions.unknown.user)
+ *(.exceptions.unknown)
+ *(.exceptions.exit.label)
+ *(.exceptions.exit.user)
+ *(.exceptions.exit)
+ *(.exceptions)
+                0x0000000000000020                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
+                0x0000000000000020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
+
+.text           0x0000000000000020      0x334
+                [!provide]                        PROVIDE (stext, ABSOLUTE (.))
+ *(.interp)
+ *(.hash)
+ *(.dynsym)
+ *(.dynstr)
+ *(.gnu.version)
+ *(.gnu.version_d)
+ *(.gnu.version_r)
+ *(.rel.init)
+ *(.rela.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rela.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rela.ctors)
+ *(.rel.dtors)
+ *(.rela.dtors)
+ *(.rel.got)
+ *(.rela.got)
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ *(.rel.plt)
+ *(.rela.plt)
+ *(.rel.dyn)
+ *(.init)
+ *(.plt)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000000000020       0x4c ../motor_controller_bsp//obj/HAL/src/crt0.o
+                0x0000000000000020                _start
+ .text          0x000000000000006c        0x0 obj/default/main.o
+ .text.startup  0x000000000000006c       0x30 obj/default/main.o
+                0x000000000000006c                main
+ .text          0x000000000000009c       0x44 ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+                0x000000000000009c                alt_getchar
+ .text          0x00000000000000e0       0xe0 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+                0x00000000000000e0                alt_load
+ .text          0x00000000000001c0       0x2c ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+                0x00000000000001c0                alt_main
+ .text          0x00000000000001ec       0x48 ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+                0x00000000000001ec                alt_putchar
+ .text          0x0000000000000234       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x0000000000000234                alt_irq_init
+                0x0000000000000254                alt_sys_init
+ .text          0x0000000000000258       0x5c ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x0000000000000258                altera_avalon_jtag_uart_read
+ .text          0x00000000000002b4       0x34 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x00000000000002b4                altera_avalon_jtag_uart_write
+ .text          0x00000000000002e8       0x18 ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                0x00000000000002e8                alt_dcache_flush_all
+ .text          0x0000000000000300        0x8 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+ .text          0x0000000000000308        0xc ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                0x0000000000000308                alt_icache_flush_all
+ .text          0x0000000000000314        0x8 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x0000000000000314                altera_nios2_gen2_irq_init
+ .text          0x000000000000031c       0x38 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+                0x000000000000031c                alt_icache_flush
+ *(.gnu.warning.*)
+ *(.fini)
+                [!provide]                        PROVIDE (__etext, ABSOLUTE (.))
+                [!provide]                        PROVIDE (_etext, ABSOLUTE (.))
+                [!provide]                        PROVIDE (etext, ABSOLUTE (.))
+ *(.eh_frame_hdr)
+                0x0000000000000354                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__preinit_array_start, ABSOLUTE (.))
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                [!provide]                        PROVIDE (__init_array_start, ABSOLUTE (.))
+ *(.init_array)
+                [!provide]                        PROVIDE (__init_array_end, ABSOLUTE (.))
+                [!provide]                        PROVIDE (__fini_array_start, ABSOLUTE (.))
+ *(.fini_array)
+                [!provide]                        PROVIDE (__fini_array_end, ABSOLUTE (.))
+ *(.eh_frame)
+ *(.gcc_except_table .gcc_except_table.*)
+ *(.dynamic)
+                [!provide]                        PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+ *(.ctors)
+ *(SORT(.ctors.*))
+                [!provide]                        PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                [!provide]                        PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+ *(.dtors)
+ *(SORT(.dtors.*))
+                [!provide]                        PROVIDE (__DTOR_END__, ABSOLUTE (.))
+ *(.jcr)
+                0x0000000000000354                . = ALIGN (0x4)
+
+.rodata         0x0000000000000354       0x10
+                0x0000000000000354                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x0000000000000354                . = ALIGN (0x4)
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x0000000000000354        0x3 obj/default/main.o
+ *fill*         0x0000000000000357        0x1 
+ .rodata.str1.4
+                0x0000000000000358        0xc ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+                                          0xa (size before relaxing)
+ *(.rodata1)
+                0x0000000000000364                . = ALIGN (0x4)
+                0x0000000000000364                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x0000000000000354                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+
+.rwdata         0x0000000000000364       0x70 load address 0x00000000000003d4
+                0x0000000000000364                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x0000000000000364                . = ALIGN (0x4)
+ *(.got.plt)
+ *(.got)
+ *(.data1)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000000364        0x0 ../motor_controller_bsp//obj/HAL/src/crt0.o
+ .data          0x0000000000000364        0x0 obj/default/main.o
+ .data          0x0000000000000364        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+ .data          0x0000000000000364        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+ .data          0x0000000000000364        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+ .data          0x0000000000000364        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+ .data          0x0000000000000364        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .data          0x0000000000000364        0x0 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .data          0x0000000000000364        0x0 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x0000000000000364        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x0000000000000364       0x58 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+                0x0000000000000364                alt_fd_list
+                0x0000000000000394                alt_dev_null
+ .data          0x00000000000003bc        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x00000000000003bc        0x0 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .data          0x00000000000003bc        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+                0x00000000000083bc                _gp = ABSOLUTE ((. + 0x8000))
+                [!provide]                        PROVIDE (gp, _gp)
+ *(.rwdata .rwdata.*)
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata         0x00000000000003bc        0x4 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x00000000000003bc                jtag_uart
+ .sdata         0x00000000000003c0       0x14 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+                0x00000000000003c0                alt_max_fd
+                0x00000000000003c4                alt_dev_list
+                0x00000000000003cc                alt_fs_list
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+                0x00000000000003d4                . = ALIGN (0x4)
+                0x00000000000003d4                _edata = ABSOLUTE (.)
+                [!provide]                        PROVIDE (edata, ABSOLUTE (.))
+                0x00000000000003d4                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x00000000000003d4                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+
+.bss            0x0000000000000444        0xc
+                0x0000000000000444                __bss_start = ABSOLUTE (.)
+                [!provide]                        PROVIDE (__sbss_start, ABSOLUTE (.))
+                [!provide]                        PROVIDE (___sbss_start, ABSOLUTE (.))
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss          0x0000000000000444        0xc ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000000444                alt_envp
+                0x0000000000000448                alt_argv
+                0x000000000000044c                alt_argc
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+ *(.scommon)
+                [!provide]                        PROVIDE (__sbss_end, ABSOLUTE (.))
+                [!provide]                        PROVIDE (___sbss_end, ABSOLUTE (.))
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp//obj/HAL/src/crt0.o
+ .bss           0x0000000000000450        0x0 obj/default/main.o
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .bss           0x0000000000000450        0x0 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+ *(COMMON)
+                0x0000000000000450                . = ALIGN (0x4)
+                0x0000000000000450                __bss_end = ABSOLUTE (.)
+
+.onchip_memory  0x0000000000000450        0x0
+                [!provide]                        PROVIDE (_alt_partition_onchip_memory_start, ABSOLUTE (.))
+ *(.onchip_memory .onchip_memory. onchip_memory.*)
+                0x0000000000000450                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (_alt_partition_onchip_memory_end, ABSOLUTE (.))
+                0x0000000000000450                _end = ABSOLUTE (.)
+                0x0000000000000450                end = ABSOLUTE (.)
+                0x0000000000000450                __alt_stack_base = ABSOLUTE (.)
+                [!provide]                        PROVIDE (_alt_partition_onchip_memory_load_addr, LOADADDR (.onchip_memory))
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x23
+ *(.comment)
+ .comment       0x0000000000000000       0x23 obj/default/main.o
+                                         0x24 (size before relaxing)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .comment       0x0000000000000023       0x24 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x1c8
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x28 ../motor_controller_bsp//obj/HAL/src/crt0.o
+ .debug_aranges
+                0x0000000000000028       0x20 obj/default/main.o
+ .debug_aranges
+                0x0000000000000048       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+ .debug_aranges
+                0x0000000000000068       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_aranges
+                0x0000000000000088       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_aranges
+                0x00000000000000a8       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_aranges
+                0x00000000000000c8       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_aranges
+                0x00000000000000e8       0x20 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_aranges
+                0x0000000000000108       0x20 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_aranges
+                0x0000000000000128       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_aranges
+                0x0000000000000148       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_aranges
+                0x0000000000000168       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_aranges
+                0x0000000000000188       0x20 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_aranges
+                0x00000000000001a8       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x1572
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000       0xbf ../motor_controller_bsp//obj/HAL/src/crt0.o
+ .debug_info    0x00000000000000bf       0xf3 obj/default/main.o
+ .debug_info    0x00000000000001b2      0x32d ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+ .debug_info    0x00000000000004df      0x1c9 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_info    0x00000000000006a8      0x169 ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_info    0x0000000000000811      0x12a ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_info    0x000000000000093b      0x185 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x0000000000000ac0      0x1b4 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_info    0x0000000000000c74      0x197 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_info    0x0000000000000e0b       0xa6 ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x0000000000000eb1      0x499 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_info    0x000000000000134a       0xb8 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x0000000000001402       0x92 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_info    0x0000000000001494       0xde ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+
+.debug_abbrev   0x0000000000000000      0x9bc
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0x12 ../motor_controller_bsp//obj/HAL/src/crt0.o
+ .debug_abbrev  0x0000000000000012       0x98 obj/default/main.o
+ .debug_abbrev  0x00000000000000aa      0x11d ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+ .debug_abbrev  0x00000000000001c7       0xd8 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x000000000000029f       0xee ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x000000000000038d       0xd2 ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_abbrev  0x000000000000045f      0x107 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x0000000000000566      0x102 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_abbrev  0x0000000000000668       0xd5 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_abbrev  0x000000000000073d       0x5a ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x0000000000000797       0xd9 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_abbrev  0x0000000000000870       0x6f ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x00000000000008df       0x42 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_abbrev  0x0000000000000921       0x9b ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+
+.debug_line     0x0000000000000000      0x901
+ *(.debug_line)
+ .debug_line    0x0000000000000000       0x72 ../motor_controller_bsp//obj/HAL/src/crt0.o
+ .debug_line    0x0000000000000072       0xab obj/default/main.o
+ .debug_line    0x000000000000011d       0xb7 ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+ .debug_line    0x00000000000001d4       0xa4 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_line    0x0000000000000278       0xbd ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_line    0x0000000000000335       0x55 ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_line    0x000000000000038a      0x101 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x000000000000048b       0xfb ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_line    0x0000000000000586       0xf0 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x0000000000000676       0x5a ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x00000000000006d0       0xf6 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_line    0x00000000000007c6       0x6e ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x0000000000000834       0x50 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_line    0x0000000000000884       0x7d ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+
+.debug_frame    0x0000000000000000      0x1fc
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x28 obj/default/main.o
+ .debug_frame   0x0000000000000028       0x2c ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+ .debug_frame   0x0000000000000054       0x30 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_frame   0x0000000000000084       0x2c ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_frame   0x00000000000000b0       0x30 ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_frame   0x00000000000000e0       0x3c ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_frame   0x000000000000011c       0x20 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_frame   0x000000000000013c       0x20 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_frame   0x000000000000015c       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x000000000000017c       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_frame   0x000000000000019c       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x00000000000001bc       0x20 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_frame   0x00000000000001dc       0x20 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+
+.debug_str      0x0000000000000000      0x71f
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x15c obj/default/main.o
+                                        0x1a1 (size before relaxing)
+ .debug_str     0x000000000000015c      0x177 ../motor_controller_bsp/\libhal_bsp.a(alt_getchar.o)
+                                        0x284 (size before relaxing)
+ .debug_str     0x00000000000002d3      0x11b ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+                                        0x28a (size before relaxing)
+ .debug_str     0x00000000000003ee       0x5e ../motor_controller_bsp/\libhal_bsp.a(alt_main.o)
+                                        0x203 (size before relaxing)
+ .debug_str     0x000000000000044c       0x34 ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+                                        0x1d9 (size before relaxing)
+ .debug_str     0x0000000000000480       0x86 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+                                        0x272 (size before relaxing)
+ .debug_str     0x0000000000000506       0x3d ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                                        0x26d (size before relaxing)
+ .debug_str     0x0000000000000543       0x32 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                                        0x263 (size before relaxing)
+ .debug_str     0x0000000000000575       0x1f ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                                        0x1a3 (size before relaxing)
+ .debug_str     0x0000000000000594      0x120 ../motor_controller_bsp/\libhal_bsp.a(alt_dev.o)
+                                        0x353 (size before relaxing)
+ .debug_str     0x00000000000006b4       0x30 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                                        0x1b4 (size before relaxing)
+ .debug_str     0x00000000000006e4       0x20 ../motor_controller_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                                        0x1aa (size before relaxing)
+ .debug_str     0x0000000000000704       0x1b ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+                                        0x1a9 (size before relaxing)
+
+.debug_loc      0x0000000000000000      0x216
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000       0x2c ../motor_controller_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_loc     0x000000000000002c       0x21 ../motor_controller_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_loc     0x000000000000004d       0xcd ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_loc     0x000000000000011a       0x8b ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_loc     0x00000000000001a5       0x1f ../motor_controller_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_loc     0x00000000000001c4       0x52 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_alt_sim_info
+                0x0000000000000000       0x30
+ *(.debug_alt_sim_info)
+ .debug_alt_sim_info
+                0x0000000000000000       0x30 ../motor_controller_bsp//obj/HAL/src/crt0.o
+                0x0000000000001000                __alt_data_end = 0x1000
+                0x0000000000001000                PROVIDE (__alt_stack_pointer, __alt_data_end)
+                [!provide]                        PROVIDE (__alt_stack_limit, __alt_stack_base)
+                [!provide]                        PROVIDE (__alt_heap_start, end)
+                [!provide]                        PROVIDE (__alt_heap_limit, 0x1000)
+OUTPUT(motor_controller.elf elf32-littlenios2)
+
+.debug_ranges   0x0000000000000000       0xa8
+ .debug_ranges  0x0000000000000000       0x20 ../motor_controller_bsp//obj/HAL/src/crt0.o
+ .debug_ranges  0x0000000000000020       0x10 obj/default/main.o
+ .debug_ranges  0x0000000000000030       0x48 ../motor_controller_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_ranges  0x0000000000000078       0x20 ../motor_controller_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_ranges  0x0000000000000098       0x10 ../motor_controller_bsp/\libhal_bsp.a(alt_icache_flush.o)

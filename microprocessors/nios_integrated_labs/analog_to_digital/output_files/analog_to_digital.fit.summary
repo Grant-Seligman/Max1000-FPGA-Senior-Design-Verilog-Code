@@ -1,0 +1,18 @@
+Fitter Status : Successful - Wed Apr 22 15:53:47 2020
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : analog_to_digital
+Top-level Entity Name : analog_to_digital
+Family : MAX 10
+Device : 10M08SAU169C8G
+Timing Models : Final
+Total logic elements : 4,735 / 8,064 ( 59 % )
+    Total combinational functions : 3,681 / 8,064 ( 46 % )
+    Dedicated logic registers : 3,217 / 8,064 ( 40 % )
+Total registers : 3217
+Total pins : 2 / 130 ( 2 % )
+Total virtual pins : 0
+Total memory bits : 271,200 / 387,072 ( 70 % )
+Embedded Multiplier 9-bit elements : 0 / 48 ( 0 % )
+Total PLLs : 1 / 1 ( 100 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 1 / 1 ( 100 % )
