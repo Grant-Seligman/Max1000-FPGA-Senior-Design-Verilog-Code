@@ -8,7 +8,6 @@
    <name preferredWidth="258" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Library/Basic Functions/Simulation; Debug and Verification,Library/Basic Functions/Bridges and Adaptors,Library/Basic Functions,Library/Basic Functions/Simulation; Debug and Verification/Debug and Performance,Project,Library/Interface Protocols,Library,Library/Basic Functions/Bridges and Adaptors/Memory Mapped,Library/Interface Protocols/Serial" />
- <window width="2390" height="1598" x="0" y="0" />
+ <library expandedCategories="Project,Library" />
+ <window width="1920" height="1047" x="0" y="0" />
 </preferences>

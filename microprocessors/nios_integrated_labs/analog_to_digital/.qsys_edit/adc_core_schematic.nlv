@@ -1,8 +1,37 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst unsaved.clk_0 -pg 1 -lvl 1 -y 30
-preplace inst unsaved -pg 1 -lvl 1 -y 40 -regy -20
-preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)unsaved.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
-preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)unsaved.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-levelinfo -pg 1 0 50 270
-levelinfo -hier unsaved 60 90 260
+preplace inst adc_core.adc.control_internal -pg 1
+preplace inst adc_core -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst adc_core.avalon_bridge.transacto -pg 1
+preplace inst adc_core.adc.adc_monitor_internal -pg 1
+preplace inst adc_core.avalon_bridge -pg 1 -lvl 2 -y 240
+preplace inst adc_core.adc.st_splitter_internal -pg 1
+preplace inst adc_core.adc.rst_inst -pg 1
+preplace inst adc_core.adc.adc_monitor_internal.reset_bridge -pg 1
+preplace inst adc_core.adc -pg 1 -lvl 3 -y 130
+preplace inst adc_core.avalon_bridge.timing_adt -pg 1
+preplace inst adc_core.adc.sample_store_internal -pg 1
+preplace inst adc_core.adc.adc_monitor_internal.core -pg 1
+preplace inst adc_core.avalon_bridge.clk_src -pg 1
+preplace inst adc_core.adc.adc_monitor_internal.clock_bridge -pg 1
+preplace inst adc_core.avalon_bridge.p2b_adapter -pg 1
+preplace inst adc_core.avalon_bridge.b2p_adapter -pg 1
+preplace inst adc_core.avalon_bridge.p2b -pg 1
+preplace inst adc_core.avalon_bridge.jtag_phy_embedded_in_jtag_master -pg 1
+preplace inst adc_core.adc.sequencer_internal -pg 1
+preplace inst adc_core.adc.cb_inst -pg 1
+preplace inst adc_core.avalon_bridge.fifo -pg 1
+preplace inst adc_core.avalon_bridge.clk_rst -pg 1
+preplace inst adc_core.clk_0 -pg 1 -lvl 1 -y 50
+preplace inst adc_core.avalon_bridge.b2p -pg 1
+preplace inst adc_core.adc.adc_monitor_internal.trace_endpoint -pg 1
+preplace inst adc_core.pll -pg 1 -lvl 2 -y 30
+preplace netloc FAN_OUT<net_container>adc_core</net_container>(SLAVE)adc.sample_store_csr,(SLAVE)adc.sequencer_csr,(MASTER)avalon_bridge.master) 1 2 1 570
+preplace netloc FAN_OUT<net_container>adc_core</net_container>(SLAVE)pll.inclk_interface,(SLAVE)adc.clock,(MASTER)clk_0.clk,(SLAVE)avalon_bridge.clk) 1 1 2 280 180 NJ
+preplace netloc POINT_TO_POINT<net_container>adc_core</net_container>(SLAVE)adc.adc_pll_clock,(MASTER)pll.c0) 1 2 1 570
+preplace netloc FAN_OUT<net_container>adc_core</net_container>(SLAVE)avalon_bridge.clk_reset,(MASTER)clk_0.clk_reset,(SLAVE)pll.inclk_interface_reset,(SLAVE)adc.reset_sink) 1 1 2 260 200 NJ
+preplace netloc EXPORT<net_container>adc_core</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)adc_core.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>adc_core</net_container>(SLAVE)clk_0.clk_in,(SLAVE)adc_core.clk) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>adc_core</net_container>(SLAVE)pll.locked_conduit,(SLAVE)adc.adc_pll_locked) 1 1 2 300 160 NJ
+levelinfo -pg 1 0 50 780
+levelinfo -hier adc_core 60 90 380 690 770
