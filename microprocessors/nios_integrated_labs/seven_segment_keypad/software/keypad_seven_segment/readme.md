@@ -1,5 +1,4 @@
 Readme - Keypad Read / Seven Segment Write Example
 
 DESCRIPTION:
-
-This project is meant to be run on a NIOS System with a keypad decoder and seven segment decoder mapped into memory. The 4 bit value provided by the keypad decoder is placed in memory and the main function buffers that value into the key varialbe and the written out to the seven segment decoder. If a new key, the value will print to console.
+This program reads data from a memory mapped keypad decoder hardware module, displays the data to the NIOS console, then passes the data to a 7segment display decoder. One feature is the key data will only update when a new key is pressed.
