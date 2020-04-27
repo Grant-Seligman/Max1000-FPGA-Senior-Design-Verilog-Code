@@ -1,0 +1,18 @@
+Fitter Status : Successful - Sun Apr 26 18:33:17 2020
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : dc_motor
+Top-level Entity Name : dc_motor
+Family : MAX 10
+Device : 10M08SAU169C8G
+Timing Models : Final
+Total logic elements : 3,180 / 8,064 ( 39 % )
+    Total combinational functions : 2,828 / 8,064 ( 35 % )
+    Dedicated logic registers : 1,865 / 8,064 ( 23 % )
+Total registers : 1865
+Total pins : 5 / 130 ( 4 % )
+Total virtual pins : 0
+Total memory bits : 95,424 / 387,072 ( 25 % )
+Embedded Multiplier 9-bit elements : 6 / 48 ( 13 % )
+Total PLLs : 1 / 1 ( 100 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

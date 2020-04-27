@@ -1,9 +1,5 @@
 //Keypad Decoder Module
 /*
-
-*/
-
-/*
 AUTHOR: GABE GARVES
 EDITED BY: GRANT SELIGMAN
 DATE: 2/25/2020
@@ -21,7 +17,6 @@ DESCRIPTION:
 	  row_out[2]	Output	PIN_J13
 	  row_out[1]	Output	PIN_J12
 	  row_out[0]	Output	PIN_L12
-
 */
 
 module keypad_decoder(key, row, column, clk);
