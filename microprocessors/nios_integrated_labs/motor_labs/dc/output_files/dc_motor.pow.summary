@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Sun Apr 26 18:33:25 2020
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : dc_motor
+Top-level Entity Name : dc_motor
+Family : MAX 10
+Device : 10M08SAU169C8G
+Power Models : Final
+Total Thermal Power Dissipation : 174.46 mW
+Core Dynamic Thermal Power Dissipation : 1.85 mW
+Core Static Thermal Power Dissipation : 134.75 mW
+I/O Thermal Power Dissipation : 37.85 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data
