@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////////////////////////
 // File downloaded from http://www.nandland.com
 ///////////////////////////////////////////////////////////////////////////////
@@ -36,7 +37,6 @@
 // out[6]  - G   | out[1]	Output	PIN_J10
 // out[7]  - DP  | out[0]	Output	PIN_K12
 ///////////////////////////////////////////////////////////////////////////////
-
 module seven_seg_decoder(out, in);
   output reg [7:0] out;
   input wire [3:0] in;
@@ -46,7 +46,7 @@ module seven_seg_decoder(out, in);
 
   always @(in) begin
     case (in)
-      // Layout of bits are MSB is DP, then decending G-A
+      // Layout of bits, MSB is DP, then decending G-A
       //              [DP]GFE DCBA
       4'h0 :    out = 8'b0011_1111;
       4'h1 :    out = 8'b0000_0110;

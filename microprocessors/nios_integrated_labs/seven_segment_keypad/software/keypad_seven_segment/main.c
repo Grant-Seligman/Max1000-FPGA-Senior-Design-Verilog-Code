@@ -20,21 +20,24 @@
 
 int main()
 {
-  // Variables used to capture incoming data
+    // Variables used to capture incoming data
 	unsigned char key = 0;
 	unsigned char old_key = 0;
 
   // Main loop to check for keypad input
   while (1)
   {
+
+	/* 
+	 * Instead of PIO_KEYPAD_BASE, you could input the exact address value
+	 * You will find this 0x_______ address in the Platform Designer under
+	 * the Base column.
+	 * Example: key = IORD_ALTERA_AVALON_PIO_DATA(0x2010, <data>);
+	 * 
+	 */
+
 	  // Read value at PIO_KEYPAD_BASE address into key variable
 	  key = IORD_ALTERA_AVALON_PIO_DATA(PIO_KEYPAD_BASE);
-
-	  /*Instead of PIO_KEYPAD_BASE, you could input the exact address value
-	   *You will find this 0x_______ address in the Platform Designer under
-	   *the Base column.
-	   *Example: key = IORD_ALTERA_AVALON_PIO_DATA(0x2010);
-	  */
 
 	  // Write key variable to PIO_SEGMENT_BASE address
 	  IOWR_ALTERA_AVALON_PIO_DATA(PIO_SEVEN_SEGMENT_BASE, key);
@@ -48,6 +51,6 @@ int main()
 		  printf("%i\t", key);
 	  }
   }
-
   return 0;
 }
+
