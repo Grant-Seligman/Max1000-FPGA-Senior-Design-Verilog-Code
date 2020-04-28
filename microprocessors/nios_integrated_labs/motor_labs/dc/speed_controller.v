@@ -1,5 +1,18 @@
+// Variable speed controller for DC motor.
+/*
+AUTHOR: GRANT SELIGMAN
+DATE: 4/3/2020
+EDITED BY: JAMES STARKS
+DATE: 3/3/2020
+FROM: TXST SENIOR DESIGN FALL 2019-SPRING 2020
+FOR: TEXAS STATE UNIVERSITY STUDENT AND INSTRUCTIOR USE
+DESCRIPTION: This module generates a PWM signal based on the 
+			 input set_speed value. This is an 8bit value
+			 with 256 possible values. To calculate the duty
+			 of the PWM generated, divide set_speed/256.
+*/
 module speed_controller(motor_driver_en, set_speed, clk);
-    // PWM Signal for the motor driver enable pin
+    // PWM signal for the motor driver enable pin
     output reg motor_driver_en;
     // Speed value provided by NIOS in the software layer
     input wire [7:0] set_speed;
@@ -19,3 +32,4 @@ module speed_controller(motor_driver_en, set_speed, clk);
         counter = counter + 1;
     end
 endmodule
+
