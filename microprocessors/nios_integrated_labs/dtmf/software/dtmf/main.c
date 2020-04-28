@@ -1,4 +1,4 @@
-//NIO II C Program Simple Data Allocation
+//NIOS II C Program Simple Data Allocation
 /*
  * AUTHOR: JAMES STARKS
  * DATE: 4/20/2020

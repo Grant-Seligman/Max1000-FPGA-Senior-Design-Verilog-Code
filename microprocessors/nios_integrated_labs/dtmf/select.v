@@ -1,3 +1,28 @@
+// Select two tone module
+/*
+AUTHOR: JAMES STARKS
+DATE: 4/17/2020
+FROM: TXST SENIOR DESIGN FALL 2019-SPRING2020
+FOR: TEXAS STATE UNIVERSITY STUDENT AND INSTRUCTOR USE
+DESCRIPTION: This module decodes a 4 bit input and selects the appropriate row and column. This
+             is to be used for DTMF selection. 
+
+    Below is a table of which this decoder is based on.
+       c0 c1 c2 c3
+      +-----------+
+    r0|1 |2 |3 |A |
+      +-----------+
+    r1|4 |5 |6 |B |
+      +-----------+
+    r2|7 |8 |9 |C |
+      +-----------+
+    r3|E |0 |F |D |
+      +-----------+
+
+    Ex, A is passed in through select,
+        out_row is set ot r0
+        out_column is set to c3.
+*/
 module select(out_row, out_column, select, en, row_0, row_1, row_2, row_3, column_0, column_1, column_2, column_3);
     output reg out_row;
     output reg out_column;
@@ -17,9 +42,11 @@ module select(out_row, out_column, select, en, row_0, row_1, row_2, row_3, colum
     input wire [3:0] select;
     input wire en;
 
+    // Group input rows&columns together to improve code readability.
     assign rows = {row_3, row_2, row_1, row_0};
     assign columns = {column_3, column_2, column_1, column_0};
-
+    
+    // This module is enable sensitive - the tone will stop if enable goes low.
     always@(en) begin
         case(en)
             1'b0: begin
